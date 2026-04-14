@@ -1,0 +1,258 @@
+/* General styles for filter container */
+.filter-container {
+  display: flex;
+  align-items: center;
+}
+
+// /* When on the homepage, show the switch */
+// .home-page-main .filter-container .switch {
+//   display: block;
+// }
+
+// /* Hide the switch on non-homepages */
+// body:not(.home-page-main) .filter-container .switch {
+//   display: none;
+// }
+
+
+.filter-set-heading {
+  font-family: $open-sans;
+  font-size: 16px;
+  // margin-left: units(4);
+  margin-left: units(3);
+  font-weight: 600;
+  margin-right: units(2); 
+  
+  .page--home & {
+    font-size: 22px;
+    margin-left: units(2);
+
+    @include tablet-s {
+      color: $secondary;
+      margin-top: units(4);
+    }
+  }
+}
+
+.filter-button {
+  appearance: none;
+  background: $white image('arrow-down.svg') no-repeat right units(1.5) center;
+  border: 0;
+  border-radius: 4px;
+  color: $base;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $open-sans;
+  font-size: 14px;
+  font-weight: bold;
+  padding: units(1.5) units(2);
+  position: relative;
+  text-align: left;
+  width: 100%;
+  
+  .page--home & {
+    border: 1px solid $base;
+  }
+
+ 
+  &[aria-expanded="true"] {
+    border-radius: 4px 4px 0 0;
+    z-index: 1000;
+
+    &:after {
+      //background-color: $white;
+      bottom: 0;
+      content: "";
+      //height: 6px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 1000;
+    }
+  }
+  
+  span {
+    display: inline;
+    @include text-overflow(95%);
+  }
+
+  @include tablet-s {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: units(1) units(4) units(1) units(2);
+    font-size: 16px;
+  }
+
+  // Active state for litigation filter
+  &.filter-button--active {
+    background-color: white; // Even softer, more muted yellow
+    color: $base;
+    
+    .page--home & {
+      border-color: #f0e68c;
+    }
+  }
+}
+
+// Filter status indicators
+.filter-status {
+  display: inline;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: units(0.5);
+  padding: units(0.25) units(0.5);
+  border-radius: 3px;
+  
+  &--on {
+    background-color: $base;
+    color: $white;
+  }
+  
+  &--off {
+    // Normal appearance - no special styling needed
+    background-color: transparent;
+    color: $base-lighter;
+  }
+  
+  // When the button is active, adjust the status indicator
+  .filter-button--active & {
+    &.filter-status--on {
+      background-color: #f0e68c; // Match the even softer yellow background
+      color: $base;
+    }
+  }
+}
+
+.filters-menu {
+  background-color:$white;
+  border-radius: 0 0 4px 4px;
+  color: $base;
+  margin-bottom: units(4);
+  padding: units(3);
+  width: 100%;
+
+  .policy-filters & {
+    .current {
+      color: $secondary;
+      a.current,
+      a.current:visited {
+        color: $secondary;
+      }
+    } 
+  }
+
+  @include tablet-s {
+    box-shadow: 0 0 5px rgba(0,0,0,.25);
+    left: units(1.5);
+    position: absolute;
+    transform: translateY(-1px);
+    z-index: 800;
+    width: calc(100% - #{units(3)});
+  }
+
+  hr {
+    border: 0;
+    border-top: 2px solid $secondary;
+    margin: units(2) 0;
+  }
+}
+
+.filters-menu--wide {
+
+  @include tablet-s {
+    left: units(1.5);
+    width: calc(200% - #{units(3)});
+  }
+}
+
+.filters__heading {
+  font-family: $open-sans;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 1em 0 .25em;
+
+  a,
+  a:visited {
+    color: $base;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    color: $secondary;
+    text-decoration: underline;
+  }
+
+}
+
+.filters__list {
+  display: inline-flex;
+  list-style: none;
+  margin: units(-1) 0 0 units(-1);
+  flex-wrap: wrap;
+
+  a,
+  a:visited {
+    color: $base;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    color: $secondary;
+    text-decoration: underline;
+  }
+
+  // a.current,
+  // a.current:visited {
+  //   color: $secondary;
+  // }
+}
+
+.filters__item {
+  margin: units(1) units(0.5);
+  white-space: nowrap;
+
+  &:after {
+    content: "|";
+    display: inline-block;
+    margin-left: units(0.5);
+  }
+
+  &:last-child:after {
+    display: none;
+  }
+}
+
+.navbar-filters-menu {
+  background-color: #494F51;
+  border-radius: 0 0 4px 4px;
+  color: $base;
+  margin-bottom: units(4);
+  padding: units(3);
+  width: 100%;
+}
+
+
+
+// for the highlighted word on the litigation filter
+.status-label {
+  display: inline; /* Ensures it stays on the same line as the rest of the text */
+  border-radius: 4px;
+  font-weight: bold;
+  line-height: 1;
+  margin-left: 1%;
+  padding: 1%; /* Tight padding around the word */
+}
+
+.status-on {
+  background-color: #5476e2; /* blue */
+  color: white;
+}
+
+.status-off {
+  background-color: #9f9f9f; /* gray */
+  color: white;
+}

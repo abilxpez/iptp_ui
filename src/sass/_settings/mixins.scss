@@ -1,0 +1,32 @@
+@mixin max-width($size) {
+  max-width: #{$size}px;
+}
+
+@mixin wrap {
+  @include max-width($desktop);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 units(3);
+  
+  @include desktop {
+    padding: 0;
+  }
+}
+
+@mixin flexbox-col($size) {
+  flex: 0 0 percentage($size / $grid-columns);
+  max-width: percentage($size / $grid-columns); // IE10+ and Firefox
+}
+
+@mixin equal-width-flexbox-col() {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+@mixin text-overflow($max-width: 100%) {
+  max-width: $max-width;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

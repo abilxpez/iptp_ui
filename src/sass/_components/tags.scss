@@ -1,0 +1,86 @@
+.tags {
+  margin: units(1.5) 0;
+
+  .page--detail & {
+    margin: 0 0 units(4);
+  }
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  
+}
+
+.tag-list__item {
+  margin: 0;
+}
+
+a.tag, span.tag {
+  display: inline-flex;
+  background-color: $secondary;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-family: $open-sans;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 40px;
+  height: 48px;
+  min-width: 232px;
+  padding: 0 24px;
+  margin: 0 16px 16px 0;
+
+  &.tag--small, .search-result & {
+    background: $base;
+    font-size: 12px;
+    font-weight: 400;
+    height: 24px;
+    margin-bottom: units(.5);
+    margin-right: units(.5);
+    min-width: 100px;
+    padding: 0 24px;
+    text-transform: uppercase;
+
+    &.tag--custom-color {
+      background: $primary-vivid;
+    }
+  }
+
+  &.tag--category, &.tag--department, &.tag--agency, &.tag--status, &.tag--toa {
+    background-color: $base;
+    font-weight: normal;
+    justify-content: space-between;
+    min-width: 0;
+    text-transform: none;
+
+    strong {
+      margin-right: 5px;
+      font-weight: 600;
+    }
+  }
+
+  &.tag--priority {
+    background: $secondary-lighter;
+
+    &.tag--active {
+      background: $secondary-vivid;
+      font-weight: 800;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $secondary-darker;
+  }
+}
+
+.priority-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}

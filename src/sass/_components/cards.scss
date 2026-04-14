@@ -1,0 +1,144 @@
+.card-set {
+  align-items: stretch;
+  align-content: stretch;
+  margin-left: units(-2);
+  margin-right: units(-2);
+  margin-bottom: units(9);
+}
+
+.card-set__heading {
+  color: $white;
+  font-size: 32px;
+  line-height: 110%;
+  margin: 0;
+
+  @include tablet {
+    font-size: 42px;
+    padding-left: units(4);
+    &:after {
+      content: "";
+      background-color: $white;
+      border-radius: 100%;
+      display: block;
+      height: units(2);
+      position: absolute;
+      width: units(2);
+      top: units(3);
+    }
+
+    &:before {
+      content: "";
+      background: $white;
+      width: 100%;
+      display: block;
+      position: absolute;
+      height: 2px;
+      top: units(4);
+    }
+  }
+}
+
+.card-wrap {
+  margin-top: units(2);
+  margin-bottom: units(2);
+  padding-left: units(2);
+  padding-right: units(2);
+}
+
+.card-wrap--header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.card {
+  align-items: flex-start;
+  background-color: $white;
+  border-radius: $radius-md;
+  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;;
+  padding: units(3) units(4);
+  width: 100%;
+
+  .actions {
+    margin-top: auto;
+    order: 4;
+
+    @include tablet-s {
+      order: unset;
+    }
+  }
+
+  .tags {
+    order: 3;
+
+    @include tablet-s {
+      order: unset
+    }
+  }
+
+  @include tablet-s {
+    min-height: 200px;
+
+  }
+}
+
+.card__heading {
+  order: 2;
+  margin-bottom: 0;
+
+  @include tablet-s {
+    margin-top: 0;
+    order: unset;
+    margin-bottom: 1em;
+  }
+}
+
+.card__heading__link,
+.card__heading__link:visited {
+  color: $secondary;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $secondary-darker;
+    text-decoration: underline;
+  }
+}
+
+.card-set__more {
+  padding: units(1) units(2);
+  text-align: center;
+  width: 100%;
+
+  @include tablet-s {
+    text-align: right;
+  }
+}
+
+.card-set__more-link,
+.card-set__more-link:visited {
+  align-items: center;
+  color: $white;
+  display: inline-flex;
+  font-family: $open-sans;
+  margin: 0 auto;
+  padding: units(1) 0;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+.card-set__more-icon {
+  display: block;
+  margin-left: units(1);
+}

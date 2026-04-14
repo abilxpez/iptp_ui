@@ -1,0 +1,331 @@
+$bubble-width: 82px;
+
+.stats {
+  background-color: $primary-darker;
+  display: none;
+  position: relative;
+  z-index: 50;
+
+  @include tablet-s {
+    display: block;
+  }
+}
+
+.stats-col {
+  border-right: 2px dotted $primary-lighter;
+}
+
+.stats-header {
+  padding: units(4) 0;
+
+  p {
+    font-size: 22px;
+    line-height: normal;
+    margin: 0;  
+  }
+
+  @include tablet-s {
+    padding: units(8) 0 units(4);
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+}
+
+.stats__heading {
+  background-color: $primary-darker;
+  color: $white;
+  font-size: 48px;
+  line-height: 1.2;
+  margin: 100% 0 0 0;
+  padding: units(2) 0;
+  width: 160%;
+
+  @include desktop {
+    font-size: 60px;
+  }
+}
+
+.stats--left-border {
+
+  .wrap {
+    padding-left: units(6);
+    padding-right: units(6);
+
+    @include desktop {
+      padding-left: units(3);
+      padding-right: units(3);
+    }
+
+    .stats__heading {
+      padding-left: units(3);
+    }
+  }
+
+  .stats-header {
+    border-left: 2px dotted $primary-lighter;
+    border-right: 0;
+  }
+}
+
+.stats--no-border {
+  .stats-header,
+  .stats__heading {
+    border: 0
+  }
+}
+
+.stats__chart-row {
+  align-items: flex-start;
+  height: 100%;
+  @include tablet-s {
+    padding: units(8) 0 units(8) units(9);
+  }
+  
+}
+
+
+.stats__data-viz {
+  margin-top: units(2);
+  position: relative;
+  color: white;
+  
+  @include tablet-s {
+    margin-bottom: units(2);
+  }
+}
+
+.stats__data-viz__bar.grid-row {
+  display: none;  
+
+  @include tablet-s {
+    display: block;
+  }
+}
+
+.stats_data-viz--primary {
+  color: $primary;
+
+  ~.stats__data-info {
+    color: $primary;
+  }
+}
+
+.stats_data-viz--secondary {
+  color: $secondary;
+
+  ~.stats__data-info {
+    color: $secondary;
+  }
+}
+
+.stats__data-viz__donut {
+  svg {
+    display: block;
+    height: auto;
+    width: 100%;
+    transform: rotate(45deg);
+  }
+}
+
+.stats__data-viz__number {
+  align-content: center;
+  align-items: center;
+  color: inherit;
+  display: flex;
+  font-size: 2vw;
+  font-family: $fjord;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  letter-spacing: -0.075em;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  @include desktop {
+    font-size: 2vw;
+  }
+}
+
+.stats__data-info {
+  color: inherit;
+  display: inline-block;
+  font-family: $open-sans;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+
+  @include tablet-s {
+    display: block;
+  }
+}
+
+#dataviz-timeline {
+  position: relative;
+  z-index: 5;
+}
+.dots {
+
+  circle {
+    fill: $secondary-darker;
+    stroke: $secondary-darker;
+    opacity: 0.5;
+    
+    .spotlight-bg & {
+      fill: $primary-lighter;
+      stroke: $primary-lighter;
+    }
+  }
+}
+
+.dataviz-timeline-wrap {
+  align-items: center;
+  display: none;
+  position: relative;
+
+  @include tablet-s {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: $bubble-width;
+    max-height: $bubble-width;
+  }
+}
+
+.dataviz-timeline {
+  flex: 0 0 calc(100% - #{$bubble-width});
+
+  svg {
+    // margin-left: -5px;
+  }
+}
+
+.data-viz-dates {
+  @include flexbox-col(11);
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: units(0.5);
+  width: 100%;
+}
+
+.data-viz-dates__date {
+  font-family: $open-sans;
+  font-size: 13px;
+
+  &:last-child {
+    margin-right: units(1);
+  }
+}
+
+.dataviz-timeline-bubble-container {
+  flex: 0 0 $bubble-width;
+  max-width: $bubble-width;
+}
+
+.dataviz-stats-bubble {
+  align-content: center;
+  align-items: center;
+  background-color: $secondary;
+  border-radius: 100%;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  font-family: $open-sans;
+  font-size: 13px;
+  height: $bubble-width;
+  padding: units(2);
+  width: $bubble-width;
+  text-align: center;
+
+  strong {
+    display: block;
+    font-family: $fjord;
+    font-size: 32px;
+    margin-top: units(0.5);
+  }
+  .spotlight-bg & {
+    background: $primary-lighter;
+  }
+}
+
+/* Conditional yellow background */
+.dataviz-stats-bubble.highlight {
+  background-color: yellow;
+}
+
+.spotlight-bg .dataviz-stats-bubble {
+  background: $primary-lighter;
+}
+
+
+.dataviz-timeline__info {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  margin-top: units(4);
+  margin-bottom: units(1);
+
+  p {
+    font-size: 13px;
+  }
+
+  a,
+  a:visited {
+    align-items: center;;
+    color: $secondary;
+    display: none;
+    font-family: $open-sans;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include tablet-s {
+      display: flex;
+    }
+
+    svg {
+      margin-left: units(1);
+    }
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+}
+
+.dataviz-timeline-axis {
+  path{
+    stroke: $secondary-lighter;
+
+    .spotlight-bg & {
+      stroke: $primary-lighter;
+    }
+  }
+}
+
+.tooltip {
+  position: fixed;
+  background: fade-out($primary-darker, 0.2);
+  color: $white;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  z-index: 10;
+  font-family: $open-sans;
+
+  h6 {
+    margin: 0 0 0.5em;
+  }
+
+}
+
+.donut-link {
+  text-align: center;
+  text-decoration: none;
+}

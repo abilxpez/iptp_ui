@@ -1,0 +1,40 @@
+
+.form__forgot-password, 
+.form__forgot-password:visited {
+  color: $primary;
+  display: inline-block;
+  margin-top: units(3); 
+  text-decoration: underline;
+}
+
+.page--reset {
+  .masthead {
+    @include desktop {
+      min-height: calc(100vh - 128px);
+    }
+  }
+}
+
+.external-flow {
+  .shadow-box {
+    margin-bottom: units(2);
+    
+    h2, h3, p {
+      margin-top: units(2);
+    }
+    
+    h2 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    form {
+      margin-bottom: units(4);
+    }
+
+    a, a:visited {
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+}

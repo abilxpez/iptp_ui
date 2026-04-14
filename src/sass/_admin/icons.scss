@@ -1,0 +1,44 @@
+$white: #fff;
+$green: #1fa67a;
+$red: #bc1d4a;
+
+.icon {
+    &.icon-scroll {
+      svg {
+        * {
+          fill: none;
+          stroke: currentColor;
+          stroke-width: 1;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-miterlimit: 10;
+        }
+      }
+    }
+    &.icon-red {
+      color: $red;
+    }
+    &.icon-green {
+      color: $green;
+    }
+    &.icon-large {
+      font-size: 20px;
+    }
+}
+
+// indicators
+.admin-indicator {
+  text-align: center;
+}
+
+.icon-indicator {
+  &.icon-large {
+    font-size: 20px;
+  }
+  &.icon-green {
+    color: #1fa67a;
+  }
+  &.icon-red {
+    color: #bc1d4a;
+  }
+}

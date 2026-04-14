@@ -1,0 +1,103 @@
+
+.facets {
+    display: none;
+    top: 0;
+    position: absolute;
+    max-width: 205px;
+    max-height: 100vh;
+    min-height: 100%;
+    z-index: 1;
+    padding: units(8) 0 calc(#{units(8)} * 2);
+
+
+    h5 {
+        margin-bottom: units(3);
+    }
+
+    h6 {
+        margin-bottom: units(1);
+        display: flex;
+        .facet--name {
+            // flex: 0 0 84%;
+            flex: 1 1 50%; /* Allow flexible growth and shrinkage */
+            align-content: baseline;
+            align-items: baseline;
+            white-space: normal; /* Enable text wrapping */
+            word-wrap: break-word; /* Break long words if necessary */
+            overflow: hidden; /* Hide any excess text */
+            text-overflow: ellipsis; /* Add ellipsis for truncated text */
+        }
+    }
+
+    label {
+        display: block;
+        align-items: flex-start;
+        font-family: Open Sans;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: left;
+        padding-right: units(1);
+        margin-top: units(1);
+        max-width: 85%; /* Constrain the label's width */
+        word-wrap: break-word; /* Break long words if needed */
+        overflow: hidden; /* Hide any overflow content */
+        text-overflow: ellipsis; /* Add ellipses for truncated text */
+        line-height: 1.5; /* Optional: Improve readability */
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+        margin-right: units(1);
+    }
+
+    @include tablet-s {
+        display: block;
+    }
+}
+
+fieldset {
+    border: 0;
+    margin: 0 0 3.2rem;
+    padding: 0;
+}
+
+.button--large {
+    border-radius: 8px;
+    font-family: $open-sans;
+    font-size: 16px;
+    font-weight: 600;
+    height: units(8);
+    margin-bottom: 1rem;
+    padding: units(2);
+    white-space: nowrap;
+    width: 180px;
+}
+
+.timeline__l2 {
+    position: relative;
+    &:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        overflow: hidden;
+        background: white;
+        transition: opacity 0.5s ease-in-out;
+    }
+    .filtering & {
+        height: 100%;
+        opacity: 0.5;
+    }
+}
+
+.hidden {
+    display: none !important;
+} 
+
+.facet--help {
+    padding: 0 0 0 5px;
+}

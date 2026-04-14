@@ -1,0 +1,42 @@
+
+.rich-text {
+
+  @include tablet-s {
+    .right {
+      float: right;
+    }
+    
+    .left {
+      float: left;
+    }
+
+    h3+.richtext-image {
+
+      &.right, &.left {
+        margin-bottom: 3em;
+
+        @include desktop {
+          margin-top: -3em;
+        }
+      }    
+
+      &.right {
+        margin-left: 1em;
+      }
+    
+      &.left {
+        margin-right: 1em;
+      }
+    }
+  }
+
+  @include desktop {
+    padding-right: units(4);
+  }
+
+  // Add new color styles here
+  span[style*="color"] {
+    // This will handle any color set via the rich text editor
+    color: inherit; // This ensures the inline style color takes precedence
+  }
+}

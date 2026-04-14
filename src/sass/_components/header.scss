@@ -1,0 +1,13 @@
+.header {
+  background: $primary-darker;
+  color: $white;
+  padding-bottom: units(5);
+  padding-top: units(3);
+  border-top: 1px solid $white;
+
+  .breadcrumb-list,
+  .breadcrumb__link,
+  .breadcrumb__link:visited {
+    color: $white
+  }
+}

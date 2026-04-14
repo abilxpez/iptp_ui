@@ -1,0 +1,46 @@
+.wagtail-userbar.wagtail-userbar--top-right {
+  display: none;
+  
+  .wagtail-userbar-nav {
+    // .wagtail-userbar-icon {
+    // }
+    
+    .wagtail-userbar-trigger {
+      transform: scale(0.75, 0.75);
+      transition: transform 0.25s ease-in-out;
+      box-shadow: 0 0 1px 0 $secondary-lighter, 0 1px 10px 0 fade-out($secondary-lighter, 0.3);
+      color: $secondary;
+      svg {
+        fill: currentColor;
+        stroke: transparent;
+      }
+    }
+  }
+  
+  &:hover {
+    .wagtail-userbar-trigger {
+      transform: scale(1.0, 1.0);
+    }
+  }
+  
+  @include tablet {
+    display: block;
+    margin-left: -20px;
+    position: relative;
+    top: 0;
+    z-index: 9999;
+  }
+  
+}
+
+#djDebugToolbar {
+  input[type=checkbox] {
+    appearance: auto;
+    width: auto;
+
+    &:before, &:after {
+      content: "";
+      display: none;
+    }
+  }
+}

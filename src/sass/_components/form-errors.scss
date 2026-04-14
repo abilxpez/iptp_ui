@@ -1,0 +1,17 @@
+.form  {
+    &.inline-form {
+        display: inline-flex;
+    }
+    .errorlist {
+        margin: 0;
+        padding: 0;
+        
+        li {
+            list-style: none;
+            color: $secondary-vivid;
+            line-height: normal;
+            margin-bottom: 0.5em;
+        }
+    }    
+}
+

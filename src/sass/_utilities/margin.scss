@@ -1,0 +1,159 @@
+/*
+Margin
+
+Use the margin utility to change an element's margin.
+*/
+
+// Auto Margins
+.margin-x--auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.margin-right--auto {
+  margin-right: auto !important;
+}
+
+.margin-left--auto {
+  margin-left: auto !important;
+}
+
+@each $name, $value in $spacers {
+
+  // Positive Values
+  .margin--#{$name} {
+    margin: $value !important;
+  }
+
+  .margin-x--#{$name} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+
+  .margin-y--#{$name} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+
+  .margin-top--#{$name} {
+    margin-top: $value !important;
+  }
+
+  .margin-right--#{$name} {
+    margin-right: $value !important;
+  }
+
+  .margin-bottom--#{$name} {
+    margin-bottom: $value !important;
+  }
+
+  .margin-left--#{$name} {
+    margin-left: $value !important;
+  }
+
+  //Negative values
+  .margin-x--neg#{$name} {
+    margin-left: -$value !important;
+    margin-right: -$value !important;
+  }
+
+  .margin-y--neg#{$name} {
+    margin-top: -$value !important;
+    margin-bottom: -$value !important;
+  }
+
+  .margin-top--neg#{$name} {
+    margin-top: -$value !important;
+  }
+
+  .margin-right--neg#{$name} {
+    margin-right: -$value !important;
+  }
+
+  .margin-bottom--neg#{$name} {
+    margin-bottom: -$value !important;
+  }
+
+  .margin-left--neg#{$name} {
+    margin-left: -$value !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media only screen and (min-width: #{$bp_value}px) {
+    // Auto values
+    .#{$bp_name}\:margin-x--auto {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .#{$bp_name}\:margin-right--auto {
+      margin-right: auto !important;
+    }
+
+    .#{$bp_name}\:margin-left--auto {
+      margin-left: auto !important;
+    }
+
+    @each $name, $value in $spacers {
+      // Positive Values
+      .#{$bp_name}\:margin--#{$name} {
+        margin: $value !important;
+      }
+
+      .#{$bp_name}\:margin-x--#{$name} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+      }
+
+      .#{$bp_name}\:margin-y--#{$name} {
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+      }
+
+      .#{$bp_name}\:margin-top--#{$name} {
+        margin-top: $value !important;
+      }
+
+      .#{$bp_name}\:margin-right--#{$name} {
+        margin-right: $value !important;
+      }
+
+      .#{$bp_name}\:margin-bottom--#{$name} {
+        margin-bottom: $value !important;
+      }
+
+      .#{$bp_name}\:margin-left--#{$name} {
+        margin-left: $value !important;
+      }
+
+      //Negative values
+      .#{$bp_name}\:margin-x--neg#{$name} {
+        margin-left: -$value !important;
+        margin-right: -$value !important;
+      }
+
+      .#{$bp_name}\:margin-y--neg#{$name} {
+        margin-top: -$value !important;
+        margin-bottom: -$value !important;
+      }
+
+      .#{$bp_name}\:margin-top--neg#{$name} {
+        margin-top: -$value !important;
+      }
+
+      .#{$bp_name}\:margin-right--neg#{$name} {
+        margin-right: -$value !important;
+      }
+
+      .#{$bp_name}\:margin-bottom--neg#{$name} {
+        margin-bottom: -$value !important;
+      }
+
+      .#{$bp_name}\:margin-left--neg#{$name} {
+        margin-left: -$value !important;
+      }
+    }
+  }
+}

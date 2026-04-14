@@ -1,0 +1,94 @@
+.actions, .statuses, .policy__meta {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.action__label, .status__label, .meta__label {
+  font-size: 13px;
+  margin-right: units(0.5);
+}
+
+.actions__link, .status__link, .meta__label {
+  color: $base-light;
+  font-family: $open-sans;
+  font-size: 13px;
+  margin-left: units(0.5);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.policy__meta {
+  margin-top: units(1);
+  
+  &.policy__meta--significance {
+    margin-top: units(2);
+  }
+}
+
+.meta__label {
+  align-items: center;
+  color: $base-light;
+  display: flex;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  
+  &:after {
+    content: ", ";
+    margin-right: units(0.5);
+  }
+
+  &:last-child {
+    &:after {
+      content: "";
+      margin-right: 0;
+    }
+  }
+}
+
+.policy__meta-group {
+  align-items: center;
+  display: flex;
+
+  &:after {
+    border-right: 1px solid $base-light;
+    content: " ";
+    display: inline-block;
+    height: 13px;
+    margin: 0 units(1);
+    width: 0;
+  }
+
+  &:last-child {
+    &:after {
+      border-right: 0;
+      content: "";
+      margin: 0;
+    }
+  }
+}
+
+.recent-action {
+  display: block; 
+  font-weight: 600;
+  margin: units(3) 0 0 units(0.5);
+  text-decoration: none;
+
+  svg {
+    margin-right: units(0.5);
+  }
+  
+  h6 {
+    font-size: inherit;
+    margin-left: units(2);
+    margin-bottom: units(2);
+  }
+
+  @include tablet-s {
+    span, h6 {
+      line-height: 2;
+    }
+  }
+}

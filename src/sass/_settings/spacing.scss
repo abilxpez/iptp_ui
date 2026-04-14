@@ -1,0 +1,26 @@
+// Spacing Units
+@function units($unit) {
+  
+    @if not map-has-key($units, $unit) {
+      @error '`#{$unit}` is not a valid spacing unit token. '
+        + 'Valid spacing unit tokens: '
+        + '#{map-keys($units)}';
+    }
+  
+    $val: map-get($units, $unit) ;
+    @return $val + rem;
+  }
+  
+  @function units-px($unit) {
+  
+    @if not map-has-key($units, $unit) {
+      @error '`#{$unit}` is not a valid spacing unit token. '
+        + 'Valid spacing unit tokens: '
+        + '#{map-keys($units)}';
+    }
+  
+    $val: map-get($units, $unit) ;
+    @return ($val * 10) + px;
+  }
+  
+  

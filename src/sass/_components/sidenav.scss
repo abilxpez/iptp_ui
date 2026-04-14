@@ -1,0 +1,85 @@
+.sticky {
+  @include tablet-s {
+    height: 100%;
+    position: sticky !important;
+    top: units(5);
+  }
+}
+
+.sidenav {
+  list-style: none;
+  margin-bottom: units(6);
+  padding-left: 0;
+}
+
+.sidenav--heading {
+  padding-left: units(3);
+  margin-bottom: units(1);
+  max-width: 250px;
+}
+
+.sidenav--document-set {
+  border-bottom: 1px solid $primary-lighter;
+  margin-bottom: units(2);
+
+  &.trump-documents {
+    .sidenav--heading, .sidenav__link:hover, a.sidenav__link--current {
+      color: $secondary;
+    }
+  }
+  &.biden-documents {
+    .sidenav--heading, .sidenav__link:hover, a.sidenav__link--current {
+      color: $primary-darker;
+    }
+  }
+}
+
+.sidenav__link {
+  align-items: flex-start;
+  color: $base;
+  display: inline-flex;
+  text-decoration: none;
+  margin-right: units(3);
+  margin-bottom: units(1);
+
+  &:visited {
+    color: $base;
+  }
+
+  &:hover,
+  &:focus {
+    color: $secondary;
+    text-decoration: underline;
+  }
+}
+
+.sidenav__link__icon, .sidenav__external-link__icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: flex-start;
+  height: 1em;
+  margin-right: units(1);
+  margin-top: units(0.5);
+  visibility: hidden;
+  width: units(2);
+
+  svg {
+    height: 1em;
+    width: 1em;
+  }
+}
+
+.sidenav__external-link__icon {
+  align-items: center;
+  margin-left: 5px;
+  visibility: visible;
+}
+
+.sidenav__link--current,
+.sidenav__link--current:visited {
+  color: $secondary;
+
+  .sidenav__link__icon {
+    visibility: visible;
+  }
+}

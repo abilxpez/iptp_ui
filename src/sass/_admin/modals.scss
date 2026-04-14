@@ -1,0 +1,22 @@
+
+.modal {
+    .modal-dialog {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .listing {
+      .snippet-choice {
+        display: block;
+      }
+      &.documents {
+        td, th {
+          max-width: 33%;
+        }
+        td {
+          word-break: break-word;
+        }
+      }
+    }
+    
+}

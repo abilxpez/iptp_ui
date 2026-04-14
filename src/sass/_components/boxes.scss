@@ -1,0 +1,30 @@
+.shadow-box {
+  color: white;
+
+  @include tablet-s {
+    background-color: white;
+    color: $base;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    overflow: hidden;
+    padding: units(3);
+  }
+}
+
+.shadow-box--full-height {
+  @include tablet-s {
+    height: 100%; 
+  } 
+}
+
+.shadow-box--full {
+  @include tablet-s {
+    border-radius: 4px;
+  } 
+}
+
+// .shadow-box--full-height {
+//   @include tablet-s {
+//     height: 100%; 
+//   } 
+// }

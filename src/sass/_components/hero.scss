@@ -1,0 +1,45 @@
+.hero {
+  padding: units(9) 0;
+
+  .tabs {
+    margin: 0;
+  }
+
+  .tab {
+    flex: 1 0 0;
+  }
+
+  .tab:last-child a {
+    margin-right: 0;
+  }
+
+  .tab-content {
+    color: $base;
+  }
+
+  .shadow-box {
+    background-color: $white;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: $base;
+    overflow: hidden;
+    padding: units(3);
+    
+    a, a:visited {
+      color: $primary;
+      text-decoration: underline;
+    }
+  
+  }
+}
+
+.hero__content {
+  
+  @include tablet-s {
+    padding-top: units(8);
+  }
+
+  * {
+    color: $white;
+  }
+}

@@ -1,0 +1,60 @@
+.tabs {
+  display: flex;
+  list-style: none;
+  margin: 0 units(-1) units(-5);
+  padding: units(3) 0 0;
+
+  @include tablet-s {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+a.tab {
+  background-color: $primary-light;
+  border-radius: 8px 8px 0 0;
+  color: $white;
+  display: block;
+  font-size: 13px;
+  height: 100%;
+  margin-right: units(0.5);
+  padding: units(1) units(1);
+  text-align: center;
+  text-decoration: none;
+  
+  &:hover {
+    background-color: $primary;
+  }
+
+  &[aria-selected="true"] {
+    background-color: $white;
+    color: $primary-darker;
+  }
+
+  @include tablet-s {
+    font-size: 18px;
+    padding: units(1.5) units(3);
+  }
+}
+
+.tab-body {
+  @include tablet-s {
+    background-color: $white;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    height: 100%; 
+    overflow: hidden;
+    padding: units(3);
+  } 
+}
+
+.tab-body--full {
+  @include tablet-s {
+    background-color: $white;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    height: 100%; 
+    overflow: hidden;
+    padding: units(3);
+  } 
+}

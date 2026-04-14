@@ -1,0 +1,77 @@
+// //////////////////////////////////////////////////
+// responsive
+
+// respond-to
+// $media-style: max-width;
+@mixin respond-to($breakpoint, $media-style: min-width) {
+  @media only screen and ($media-style: $breakpoint + px) { @content; }
+}
+
+// Grid cols
+$grid-columns: 12 !default;
+
+// global breaks
+$tiny: 320;
+$mini: 375;
+$small: 480;
+$phone: 640;
+$phone-l: 666;
+$tablet-s: 768;
+$tablet: 960;
+$tablet-l: 1024;
+$full: 1080;
+$desktop: 1280;
+$wide: 1600;
+
+// Breakpoints
+$breakpoints: (
+  tiny: $tiny,
+  mini: $mini,
+  small: $small,
+  phone: $phone,
+  phone-l: $phone-l,
+  tablet-s: $tablet-s,
+  tablet: $tablet,
+  tablet-l: $tablet-l,
+  full: $full,
+  desktop: $desktop,
+  wide: $wide
+);
+
+// build media queries
+@mixin tiny() {
+  @include respond-to($tiny) { @content; }
+}
+@mixin mini() {
+  @include respond-to($mini) { @content; }
+}
+@mixin small() {
+  @include respond-to($small) { @content; }
+}
+@mixin phone() {
+  @include respond-to($phone) { @content; }
+}
+@mixin phone-l() {
+  @include respond-to($phone-l) { @content; }
+}
+@mixin tablet-s() {
+  @include respond-to($tablet-s) { @content; }
+}
+@mixin tablet() {
+  @include respond-to($tablet) { @content; }
+}
+@mixin tablet-l() {
+  @include respond-to($tablet-l) { @content; }
+}
+@mixin full() {
+  @include respond-to($full) { @content; }
+}
+@mixin desktop() {
+  @include respond-to($desktop) { @content; }
+}
+@mixin wide() {
+  @include respond-to($wide, min-width) { @content; }
+}
+@mixin short() {
+  @include respond-to($small, max-height) { @content; }
+}

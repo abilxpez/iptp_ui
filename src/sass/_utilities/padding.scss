@@ -1,0 +1,71 @@
+@each $name, $value in $spacers {
+
+  // Positive Values
+  .padding--#{$name} {
+    padding: $value !important;
+  }
+
+  .padding-x--#{$name} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+
+  .padding-y--#{$name} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+
+  .padding-top--#{$name} {
+    padding-top: $value !important;
+  }
+
+  .padding-right--#{$name} {
+    padding-right: $value !important;
+  }
+
+  .padding-bottom--#{$name} {
+    padding-bottom: $value !important;
+  }
+
+  .padding-left--#{$name} {
+    padding-left: $value !important;
+  }
+}
+
+// Responsive classes
+@each $bp_name, $bp_value in $breakpoints {
+  @media only screen and (min-width: #{$bp_value}px) {
+    @each $name, $value in $spacers {
+      // Positive Values
+      .#{$bp_name}\:padding--#{$name} {
+        padding: $value !important;
+      }
+
+      .#{$bp_name}\:padding-x--#{$name} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+      }
+
+      .#{$bp_name}\:padding-y--#{$name} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+      }
+
+      .#{$bp_name}\:padding-top--#{$name} {
+        padding-top: $value !important;
+      }
+
+      .#{$bp_name}\:padding-right--#{$name} {
+        padding-right: $value !important;
+      }
+
+      .#{$bp_name}\:padding-bottom--#{$name} {
+        padding-bottom: $value !important;
+      }
+
+      .#{$bp_name}\:padding-left--#{$name} {
+        padding-left: $value !important;
+      }
+    }
+  }
+}

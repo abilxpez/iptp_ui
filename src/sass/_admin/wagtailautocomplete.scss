@@ -1,0 +1,56 @@
+
+$white: #fff;
+$border-color: #dfdfdf;
+$gray-light: #efefef;
+
+.c-wagtailautocomplete {
+    * {
+      box-sizing: border-box;
+    }
+    .c-wagtailautocomplete__layout {
+      align-items: flex-start;
+    }
+    
+    .c-wagtailautocomplete__layout__item {
+      flex: 1 1 50%;
+      position: relative;
+  
+      +.c-wagtailautocomplete__layout__item {
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        padding-left: 1em;
+      }
+    }
+    .c-wagtailautocomplete__suggestions {
+      background: $white;
+      display: block;
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      z-index: 10;
+      min-height: none;
+    }
+    .c-wagtailautocomplete__suggestions__item--active,
+    .c-wagtailautocomplete__selection {
+      background: $primary;
+      color: $white;
+      font-weight: 600;
+      white-space: nowrap;
+      border-radius: 6px;
+      overflow: hidden;
+  
+      path {
+        fill: currentColor;
+      }
+    }
+    .c-wagtailautocomplete__selection {
+      margin-right: 0.9em;
+    }
+    .c-wagtailautocomplete__selection__button, .c-wagtailautocomplete__selection__label {
+      color: $white;
+      padding: .45em 0.6em;
+    }
+  }
+  

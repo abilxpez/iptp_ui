@@ -1,0 +1,284 @@
+// When a timeline set succeeds a stats box
+@include tablet-s {
+  .stats + .site-section--timeline > .timeline:first-child > .timeline__item:first-child {
+    .timeline__item-start {
+      padding-top: units(7);
+
+      .timeline__item-heading:after {
+        top: units(7);
+      }
+    }
+
+    .timeline__item-mid {
+      padding-top: units(7);
+    }
+  }
+}
+
+.policy-row {
+  .date.announced-date {
+    font-size: 13px;
+    line-height: 3;
+  }
+  @include tablet-s {
+    .meta__current-status {
+      display: none;
+    }
+  } 
+  .second-term-tag {
+    background-color: #fff238;
+    border-radius: 4px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 2px;
+    align-items: center;
+  }
+}
+
+
+// Policy details
+.policy-details {
+  background-color: $accent-cool;
+  color: $base;
+  font-family: $open-sans;
+  font-size: 16px;
+  
+  .date {
+    font-weight: 600;
+  }
+
+  .status {
+    font-weight: 700;
+  }
+
+  @include tablet-s {
+    background-color: transparent;
+    margin: units(2) 0;
+  }
+
+  a,
+  a:visited {
+    color: $secondary;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+  
+}
+
+.policy-details__title {
+  padding-top: units(3);
+  font-size: 32px;
+}
+
+.policy-details__heading {
+  color: $secondary;
+  font-family: $open-sans;
+  font-size: 18px;
+  font-weight: 700;
+  
+  .bi {
+    vertical-align: text-bottom;
+  }
+  
+}
+
+.policy-details__term {
+  .second-term-tag {
+    background-color: #fff238;;
+    border-radius: 4px;
+    font-size: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    align-items: center;
+  }
+}
+
+.document-set {
+  border-top: 2px solid $accent-light;
+
+  .date {
+    font-size: 16px;
+  }
+  .policy-details__heading {
+    margin-bottom: units(2);
+  }
+}
+
+
+.policy-detail--current-status {
+  border-bottom: 2px solid $base;
+  
+  .policy-details__heading {
+    border: 0;
+    color: $base;
+    font-size: 18px;
+  }
+  
+}
+
+.policy-details__label {
+  color: $secondary;
+  font-family: $open-sans;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.comma-list {
+
+  a {
+    color: $base-light;
+    
+    &:visited, &:hover {
+      color: $primary;
+    }
+    
+    &:after {
+      content: ", ";
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }  
+}
+
+.docs-list {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    margin: units(1) 0 units(4);
+
+    &:last-child {
+      margin-bottom: units(1);
+    }
+  }
+  
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    align-items: flex-start;
+    display: inline-flex; // JSK: Did we need this?
+
+    .bi-arrow-right {
+      flex: 0 0 1em;
+      margin-left: units(0.5);
+      margin-top: units(0.5);
+    }
+  }
+}
+
+.commentary {
+  .policy-details__heading {
+    color: $base;
+  }
+
+  .commentary__item {
+
+    h3 {
+      font-size: 22px;
+      margin-bottom: units(1);
+
+      a {
+        color: $base;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        text-decoration: underline;
+      }
+    }
+    
+    .commentary__item-link {
+      align-items: center;
+      color: $primary-darker;
+      display: inline-flex;
+      text-decoration: underline;
+    }
+
+    p {
+      margin-bottom: .75em;
+    }
+  }
+}
+
+
+.document-source {
+  display: none;
+}
+
+.sources {
+  // border-top: 1px solid $primary-lighter;
+  font-family: $open-sans;
+  margin-left: units(3);
+  margin-top: units(4);
+  padding-right: units(3);
+  padding-top: units(2);
+}
+
+.sources__heading {
+  font-family: $open-sans;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: units(1);
+}
+
+.sources__title {
+  font-family: $open-sans;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 0;
+  // padding-right: 20px;
+  
+  .sidenav__external-link__icon {
+    display: inline-flex;
+  }
+
+  a:link,
+  a:visited {
+    color: $primary-darker;
+  }
+}
+
+// Form
+.form-heading {
+  font-family: $open-sans;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.feedback-form {
+  margin-bottom: units(5);
+}
+
+.feedback-form__feedback {
+  border: 1px solid $accent-darker;
+  width: 100%;
+}
+
+.feedback-form__file-actions {
+
+  @include tablet-s {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.feedback-form input[type="file"] {
+  margin-bottom: units(3);
+
+  @include tablet-s {
+    margin-bottom: 0;
+  }
+}

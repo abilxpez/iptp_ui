@@ -1,0 +1,349 @@
+// On home page, push navbar-wrap down when banner is visible
+.navbar-wrap.with-banner {
+  margin-top: 56px; // match banner height
+}
+.subscription-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #C9ECFD;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 12px 32px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #1f1f4a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.masthead {
+
+  background-color: $base-darker;
+  color: $white; 
+
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+ 
+  .navbar {
+    display: flex;
+    align-items: center;
+    min-height: 72px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    //margin-top: 50px;
+
+    @include tablet-s {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+/* Sliding ON/OFF toggle for litigation filter */
+.litigation-toggle {
+  display: none;
+}
+.litigation-slider {
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  background: #ddd;
+  border-radius: 14px;
+  position: relative;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-left: 10px;
+  transition: background 0.3s ease;
+  box-sizing: border-box;
+}
+.litigation-slider::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 12px;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.litigation-toggle:checked + .litigation-slider {
+  background: #2563eb;
+}
+.litigation-toggle:checked + .litigation-slider::after {
+  left: 24px;
+}  .navbar.with-banner {
+    margin-top: 3%;
+  }
+
+  .navbar--noflex {
+    display: block;
+  }
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+  .subtitle {
+    margin: 0 auto 0 0;
+    width: 80%;
+  }
+
+  svg {
+    stroke: $white;
+    height: auto;
+
+    &.menu-open { width: 21px; }
+    &.menu-close { width: 21px; }
+  }
+
+  /* Button styling */
+  .menu-toggle {
+    display: inline-block;
+    color: #333;
+
+    &:hover, &:focus { color: #c00; }
+
+    @include tablet-s { display: none; }
+  }
+
+  /*
+  Default styles + Mobile first
+  Offscreen menu style
+  */
+  .main-menu {
+    position: relative;
+    display: none;
+    right: 500px;
+    top: 0;
+    height: 140px;
+    overflow-y: scroll;
+    overflow-x: visible;
+    transition: right 0.75s ease;
+    z-index: 999;
+
+    @include tablet-s {
+      position: relative;
+      right: auto;
+      top: auto;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 45px 0 0;
+      min-height: 100%;
+      width: 325px;
+      background: $primary-darker;
+
+      @include tablet-s {
+        align-items: center;
+        background: none;
+        display: flex;
+        min-height: auto;
+        padding: 0 units(1.5) 0 0;
+        width: auto;
+      }
+
+      li {
+        text-align: right;
+      }
+    }
+
+    a {
+      border-bottom: 2px solid transparent;
+      color: $white;
+      display: block;
+      margin: 10px 20px;
+      padding-bottom: 5px;
+      text-decoration: none;
+      white-space: nowrap;
+      
+      @include tablet-s {
+        &:last-of-type { 
+          margin-right: 0; 
+        }
+      }
+
+      &:hover, &:focus {
+          background: none;
+          color: $white;
+
+      &:hover { 
+        border-bottom: 2px solid $white; 
+      }
+
+      }
+      
+      &.nav-subscribe-button {
+        background-color: $primary;
+        border: 2px solid $primary;
+        border-radius: 4px;
+        color: $white;
+        padding: 6px 12px;
+        margin: 10px 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        
+        &:hover, &:focus {
+          background-color: lighten($primary, 10%);
+          border-color: lighten($primary, 10%);
+          border-bottom: 2px solid lighten($primary, 10%);
+        }
+        
+        @include tablet-s {
+          margin: 0 15px 0 0;
+          padding: 6px 10px;
+          font-size: 12px;
+        }
+        
+        @include desktop {
+          margin: 0 18px 0 0;
+          padding: 6px 12px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .menu-close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      margin: 0;
+
+      @include tablet-s { display: none; }
+    }
+
+    &:target, &[aria-expanded="true"] {
+      display: block;
+      right: 0;
+      outline: none;
+      height: 100vh;
+
+      ul {
+        position: relative;
+        z-index: 1000;
+      }
+    }
+
+    &:target .menu-close,
+    &[aria-expanded="true"] .menu-close {
+      z-index: 1001;
+    }
+
+    &:target + .backdrop,
+    &[aria-expanded="true"] + .backdrop {
+      position: absolute;
+      display: block;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 998;
+      background: #000;
+      background: rgba(0,0,0,.85);
+      cursor: default;
+    }
+
+    @supports (position: fixed) {
+      .main-menu,
+      .main-menu:target + .backdrop,
+      .main-menu[aria-expanded="true"] + .backdrop {
+        position: fixed;
+      }
+    }
+  }
+
+  .page--external & {
+    padding-bottom: units(4);
+    .subtitle {
+      @include desktop {
+        font-size: 48px;
+        padding-top: units(4);
+      }
+    }
+  }
+
+  // Dropdown menu for 2.0 Issues
+  .main-menu li.dropdown {
+    position: relative;
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: $primary-darker;
+      min-width: 200px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      top: 100%;
+      right: 0;
+      z-index: 9999;
+      max-height: 400px; /* Optional: Set a max-height to prevent it from expanding indefinitely */
+      overflow-y: auto;
+
+      @include tablet-s {
+        top: 25px;
+        right: -20px;
+      }
+
+      li {
+        text-align: left;
+
+        a {
+          margin: 0;
+          padding: 12px 20px;
+          display: block;
+          border: none;
+          white-space: normal;
+          font-size: 14px;
+
+          &:hover {
+            background-color: darken($primary-darker, 5%);
+            border: none;
+          }
+        }
+      }
+    }
+
+    &:hover .dropdown-menu,
+    &:focus-within .dropdown-menu {
+      display: block;
+    }
+
+    > a {
+      &::after {
+        content: ' ▼';
+        font-size: 10px;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+/* Make sure dropdown links can wrap and dropdown is wide enough */
+.main-menu li.dropdown .dropdown-menu {
+  min-width: 320px !important;
+}
+.main-menu li.dropdown .dropdown-menu a {
+  white-space: normal;
+}

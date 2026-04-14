@@ -1,0 +1,29 @@
+.icon {
+  &.comments-toggle__icon, .comments-controls & {
+    color: white;
+  }
+
+  &.comments-toggle__icon {
+    opacity: 0.5;
+  }
+}
+
+.comment__button {
+    color: $primary;
+  }
+  .comment__button--primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: white;
+  }
+  
+  .switch--teal-background {
+    [type=checkbox]:checked {
+      +.switch__toggle {
+        &:before {
+          background-color: $primary;
+          border-color: $primary;
+        }    
+      }
+    }
+  }

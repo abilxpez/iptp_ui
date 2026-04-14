@@ -1,0 +1,136 @@
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+p, ul, ol {
+  color: $base;
+  margin: 0 0 1.5em;
+}
+
+ul, ol {
+  padding: 0 0 0 1em;
+}
+
+label {
+  display: block;
+  font-family: $open-sans;
+  font-weight: bold;
+  margin-top: 1.5em;
+}
+
+input:not(.input-search):not([type="checkbox"]):not([type="radio"]),
+textarea {
+  border: 1px solid $accent-darker;
+  display: block;
+  font-family: $open-sans;
+  font-size: 16px;
+  margin-bottom: units(3);
+  padding: units(2);
+  width: 100%;
+}
+
+input[type="file"] {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  height: 300px;
+  max-width: 77ch;
+
+  @include tablet-s {
+    height: 150px;
+  }
+}
+
+.textarea--no-border {
+  border: 0;
+  padding: 0;
+  resize: none;
+}
+
+.wrap {
+  @include wrap;
+}
+
+.main {
+  color: $base;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 20px 0 0;
+}
+
+.main--overflow-visible {
+  overflow: visible;
+}
+
+.main--no-padding {
+  padding: 0;
+}
+
+.page-title {
+  color: $primary-darker;
+  font-weight: 400;
+}
+
+.overview {
+  color: $white;
+  
+  h2 {
+    @include max-width($tablet-s);
+  }
+}
+
+.messages {
+  margin: 0;
+  padding: 0;
+  
+  li {
+    font-style: italic;
+    font-weight: 600;
+    list-style: none;
+    margin: 0 0 1em;
+    
+    &.info, &.success {
+      color: $primary-vivid;
+    }
+
+    &.warn, &.error {
+      color: $secondary-vivid;
+    }
+    
+  }
+}
+
+.unstyled-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tuck-over {
+  position: relative;
+  z-index: 100;
+}
+
+.tuck-over--top {
+  margin-bottom: units(-2);
+}
+
+.tuck-over--bottom {
+  margin-top: units(-2);
+  
+  @include tablet-s {
+    margin-bottom: units(4);
+    
+    .shadow-box {
+      height: 100%;
+    }
+  }
+}

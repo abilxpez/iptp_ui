@@ -1,0 +1,73 @@
+button {
+  cursor: pointer;
+}
+
+.button,
+.button:visited {
+  align-items: center;
+  background-color: $white;
+  border: 2px solid $secondary;
+  border-radius: 4px;
+  color: $secondary;
+  display: inline-flex;
+  justify-content: center;
+  padding: units(1) units(4);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  cursor: pointer;
+
+  @include tablet-s {
+    width: auto;
+  }
+
+  svg {
+    margin-left: units(1)
+  }
+  
+  &[disabled] {
+    color: $primary-lighter;
+    cursor: not-allowed;
+  }
+}
+
+.button--primary {
+  background-color: $primary;
+  border: 0;
+  color: $white;
+  font-size: 16px;
+  padding: units(2) units(4);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button--secondary {
+  background-color: #fff238;
+  border: 10px;
+  border-color: black;
+  border-radius: 10%;
+  color: $primary;
+  font-size: 10;
+  padding: units(2) units(2);
+  opacity: 0.8;
+  margin-bottom: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button--link {
+  background: transparent;
+  border: 0 none;
+  color: $secondary;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+}
+
+.button--icon {
+  background: transparent;
+  border: 0 none;
+  color: $secondary;
+  padding: 0;
+  margin: 0;
+}
+

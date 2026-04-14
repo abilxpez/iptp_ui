@@ -1,0 +1,487 @@
+@import "_settings/responsive";
+@import "_admin/brand";
+@import "_components/wagtail-django";
+
+$white: #fff;
+$border-color: #dfdfdf;
+$gray-light: #efefef;
+
+@import "_admin/comments";
+@import "_admin/documents";
+@import "_admin/drafttail";
+@import "_admin/icons";
+@import "_admin/modals";
+@import "_admin/responsive";
+@import "_admin/streamfields";
+@import "_admin/wagtailautocomplete";
+
+:root {
+    --color-primary: #4e5f8a;
+    --color-primary-lighter: #959fb9;
+    --color-primary-darker: #324882;
+}  
+
+.nav-main .menu-item a {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    white-space: nowrap;
+
+    &:before {
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+    }
+}
+
+.field-date {
+    white-space: nowrap;
+}
+
+.field-title, .field-description, .field-policy, .field-admin_name {
+    min-width: 200px;
+}
+
+time {
+    white-space: nowrap;
+}
+.panel, .content {
+
+    .c-dropdown__menu {
+        padding: 0.75rem 0;
+        
+        .c-dropdown__item {
+            padding: 0;
+            
+            a {
+                display: block;
+                padding: 0.25rem 1rem;
+
+                &:hover {
+                    background: $primary;
+                    color: $white;
+                }
+            }
+        }
+    }
+    td.updated {
+        white-space: nowrap;
+    }
+}
+
+
+
+
+// forms
+.object {
+    
+    fieldset {
+        max-width: 95%;
+    }
+
+    .fields {
+        .multiple {
+            display: block;
+            float: none;
+            width: auto;
+        }
+
+        .chooser-subject_matter, .chooser-agency {
+            padding: 0.5em 1em 0 0;
+        
+            .field {
+                label {
+                    display: none;
+                }
+                .model-chooser {
+                    .chosen {
+                        align-items: center;
+                        display: flex;
+                        justify-content: space-between;
+                        
+                        .title {
+                            font-size: 20px;
+                        }
+                        &:before {
+                            display: none;
+                        }
+                    }
+                    
+                    &.blank {
+                        .chosen {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .field {
+        margin-bottom: 0.5em;
+
+        > label {
+            display: block;
+            flex: none;
+            width: auto;
+        }
+
+        .field-content {
+            display: block;
+            float: none;
+            width: 100%;
+        }
+
+        &.error {
+            background: #fee7e8;
+        }
+        
+        &.checkbox_input {
+            margin-top: 1.25em;
+            > label {
+                padding-left: 5px;
+            }
+
+            .input {
+                clear: right;
+                + .help {
+                    clear: both;
+                }
+            }
+        }
+    }
+
+    &.multi-field {
+        
+        .field-row {
+            padding: 0;
+            display: flex;
+
+            > .field-col {
+                flex: 1 1 auto;
+                padding: 0 2em 1em 0;
+            }
+        }
+        .field {
+            label {
+                white-space: nowrap;
+                padding: 0;
+                line-height: 2;
+            }
+            &.checkbox_input {
+                label {
+                    line-height: normal;
+                    margin-right: 5px;
+                }
+            }
+            &.model_multiple_choice_field {
+                align-items: stretch;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+                white-space: nowrap;
+                width: 100%;
+                
+                > label {
+                    background: $primary-lighter;
+                    border-radius: 3px;
+                    color: $white;
+                    font-size: 15px;
+                    margin-bottom: 0.5em;
+                    padding: 8px 10px;
+                }
+                
+                .field-content {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                }
+        
+                li {
+                    border-radius: 3px;
+
+                    &:hover {
+                        background: $accent-cool;
+                    }
+                    
+                    label {
+                        line-height: 3;
+                        padding: 0 10px;
+                    }
+                }
+            }
+            
+            &.model_choice_field {
+                .field-content {
+                    ul {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 2em;
+                        
+                        li {
+                            margin-bottom: 0;
+                            
+                            label {
+                                display: flex;
+                                align-items: center;
+                                line-height: 1.5;
+
+                                
+                                input[type="radio"] {
+                                    margin-right: 1.75em;
+                                    margin-bottom: 0.25em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .date_field {
+        input { 
+            width: auto;
+        }
+    }
+
+    .policy-dates {
+        .field-row {
+            padding-top: 0;
+            
+            .field-col {
+                padding-left: 0;
+            }
+
+            label {
+                display: block;
+                float: none;
+                white-space: nowrap;
+            }
+
+            .field-content {
+                display: block;
+                float: none;
+                width: 50%;
+                min-width: 200px;
+            }
+        } 
+    } // .policy-dates
+    
+    
+    
+    &.curation-notes, &.document-extras {
+        background: #fafafa;
+        padding-right: 0;
+
+        .title-wrapper {
+            label {
+                &:after {
+                    color: $base-lighter;
+                    content: "(not visible to end users)";
+                    font-style: italic;
+                    margin-left: 10px;
+                    text-transform: none;
+                }
+            }
+        }
+
+        .fields {
+            max-width: 100%;
+            fieldset {
+                max-width: 100%;
+            }
+        }
+
+        .field {
+            >label {
+                display: none;
+            }
+
+        }
+    } // &.curation-notes, &.document-extras
+} // .object
+
+.content .changelist-filter {
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #eee;
+    overflow-y: auto;
+    width: auto;
+    z-index: 1000;
+    padding: 0;
+    transition: bottom 0.25s ease-in-out;
+    opacity: 0;
+    
+    &.ready {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        opacity: 1.0;
+    }
+    &.collapsed {
+        bottom: 100%;
+        overflow: hidden;
+    }
+    
+    .available-filters {
+        padding: 40px;
+        
+    }
+    
+    li {
+        a {
+            border-color: $primary;
+            color: $primary;
+        }
+
+        &.selected, &:hover {
+            a {
+                background-color: $primary;
+                border-color: $primary;
+                color: $white;
+            }
+        }
+    }
+    
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+    li {
+        align-items: stretch;
+        display: inline-flex;
+        flex: 0 0 180px;
+        justify-content: flex-start;
+
+        a {
+            align-items: center;
+            display: flex;
+            width: 95%;
+            
+        }
+    }
+}
+
+.chooser-modal-buttons {
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 0 1em;
+    padding: 0 0 1em;
+
+    .button {
+        flex: 0 0 calc(33% - 1em);
+        margin: 0 1em 1em 0;
+        
+        &.active {
+            background: $primary-lighter;
+        }
+    }
+}
+
+.editor-nav {
+    align-items: flex-start;
+    bottom: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: right 0.5s ease-in-out;
+    z-index: 50;
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    ul {
+        background: $white;
+        border-radius: 5px 0 0 5px;
+        box-shadow: -1px 0 4px $primary;
+        overflow: hidden;
+
+        li {
+            background: $white;
+            border-bottom: 1px solid $border-color;
+            position: relative;
+            z-index: 5;
+
+            a {
+                display: block;
+                line-height: 2;
+                max-width: 170px;
+                min-width: 170px;
+                overflow: hidden;
+                padding: 5px 10px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                
+                &:hover {
+                    background: $accent-cool;
+                }
+            }
+        }
+    }
+
+    .editor-nav-toggle {
+        background: $white;
+        border-radius: 5px 0 0 5px;
+        box-shadow: -1px 0 4px $primary;
+        color: $primary;
+        cursor: pointer;
+        padding: 15px 5px 15px 7px;
+        position: absolute;
+        right: 170px;
+        text-align: center;
+        z-index: 3;
+        
+        .icon {
+            display: block;
+            transition: transform 0.1s ease-in-out;
+        }
+        &:hover {
+            background: $accent-cool;
+        }
+        
+    }
+    
+    &.collapsed {
+        right: -175px;
+        
+        .editor-nav-toggle {
+            padding-right: 8px;
+        }
+        
+        .icon-fa-chevron-right {
+            transform: rotate(180deg) translateX(4px);
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        display: flex;
+    }
+}
+
+.summary {
+    ul.stats {
+        li {
+            span.medium {
+                font-size: 2em;
+            }
+            &:hover {
+                &:before {
+                    color: $primary;
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}

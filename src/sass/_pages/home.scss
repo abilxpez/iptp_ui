@@ -1,0 +1,524 @@
+.site-intro {
+  display: none;
+
+  @include tablet-s {
+    display: block;
+  }
+}
+
+
+
+.explore-policies-section {
+  align-items: flex-end;
+}
+
+.explore-tabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+
+  @include tablet-s {
+    float: right;
+  }
+}
+
+.explore-tabs__item {
+  align-items: center;
+  color: $base-lighter;
+  display: inline-flex;
+
+  @include tablet-s {
+    &:after {
+      content: "/"
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+}
+
+.explore-tabs__link {
+  border-bottom: 2px solid transparent;
+  color: $base-light;
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+  margin: auto units(2) 0 0;
+  text-decoration: none;
+
+  &:visited {
+    color: $base-light;
+  }
+
+  &:hover,
+  &:focus {
+    color: $secondary;
+  }
+
+  @include small {
+    font-size: 12px;
+  }
+
+  @include tablet-s {
+    margin: 0 units(0.5);
+    padding: units(0.5) units(0.25);
+  }
+
+  @include desktop {
+    font-size: 16px;
+    padding: units(0.5) units(1);
+  }
+}
+
+.explore-tabs__item:first-child .explore-tabs__link {
+  margin-left: 0;
+  padding-left: 0;
+
+  @include desktop {
+    padding: units(0.5) units(1);
+  }
+}
+
+.explore-tabs__link[aria-selected="true"] {
+  color: $secondary;
+  border-bottom: 2px solid $secondary;
+}
+
+.explore-section__heading {
+  color: $base;
+  font-family: $open-sans;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.page--landing,
+.page--home {
+  .masthead {
+    background-color: $primary-darker;
+    //background-image: image('hero-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+    .subtitle {
+      @include desktop {
+        font-size: 48px;
+        padding-top: units(4);
+      }
+    }
+  }
+}
+
+.page--landing {
+
+  .masthead {
+    padding-bottom: units(4);
+    height: auto;
+  }
+
+  .main {
+    min-height: 0;
+    padding: units(6) 0;
+  }
+}
+
+.project-description {
+  padding-top: units(4);
+  padding-bottom: units(1.5)
+}
+
+.project-description__heading {
+  color: $base-lightest;
+  font-size: 22px;
+  line-height: 1.4;
+
+  @include tablet-s {
+    font-size: 32px;
+  }
+}
+
+.project-description__stats {
+  align-items: center;
+  display: none !important;
+  @include tablet-s {
+    display: flex !important;
+  }
+}
+
+.project-description__stat-container {
+  text-align: center;
+}
+
+.project-description__stats-bubble {
+  align-content: center;
+  align-items: center;
+  background-color: $secondary;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: $open-sans;
+  font-size: 13px;
+  height: 160px;
+  margin: 0 auto;
+  padding: units(2);
+  width: 160px;
+  text-align: center;
+
+  strong {
+    display: block;
+    font-family: $fjord;
+    font-size: 56px;
+    margin-top: units(1.5);
+  }
+}
+
+.page--home {
+  .main {
+    overflow: visible;
+    min-height: 100px;
+  }
+  
+  .shadow-box {
+    color: $base;
+    padding: 0 units(2);
+  }
+  
+  @include tablet-s {
+    .masthead {
+      height: 575px;
+    }
+    .tuck-over {
+      margin-top: -44rem;
+      margin-bottom: -12rem;
+    }
+    .shadow-box {
+      // padding: 0 units(4);
+      padding: units(6) units(4);
+      overflow: visible;
+    }
+  }
+}
+
+.divider {
+  border: 1px solid $secondary-lighter;
+  margin: units(3) units(-6) 0;
+  
+  @include tablet-s {
+    display: flex;
+    margin: units(6) 0;
+  }
+}
+
+.all-policies-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: units(1) auto;
+
+
+  a,
+  a:visited {
+    align-items: center;
+    color: $primary;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+
+    svg {
+      margin-left: units(1);
+    }
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+  
+  @include tablet-s {
+    margin: 0;
+    align-items: baseline;
+    justify-content: flex-end;
+    
+    a {
+      font-size: 18px;
+      display: flex;
+    }
+  }
+}
+
+.first-term-policies-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: units(2) auto;
+  font-family: Arial;
+
+  a,
+  a:visited {
+    align-items: center;
+    color: $white;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    svg {
+      margin-left: units(1);
+    }
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+  
+  @include tablet-s {
+    margin: 0;
+    align-items: baseline;
+    justify-content: flex-end;
+    
+    a {
+      font-size: 18px;
+      display: flex;
+    }
+  }
+}
+
+.view-trump-2 {
+  background-color: $secondary;
+  border-radius: 8px;
+  font-family: $open-sans;
+  font-size: 16px;
+  font-weight: 600;
+  height: units(8);
+  margin-bottom: 1rem;
+  padding: units(2);
+  white-space: nowrap;
+  border-radius: 10%;
+}
+
+.collapsible-content {
+  display: none;
+  margin-top: 1em;
+}
+
+.collapsible-content[aria-hidden="false"] {
+  display: block;
+}
+
+
+.current-status-bar {
+  padding-top: units(4);
+}
+
+.bar, .bar:hover {
+  position: relative;
+  height: 60px;
+  text-decoration: none;
+  color: $base;
+
+  &.bar--fully-in-effect {
+    background: $secondary;
+  }
+  &.bar--partially-in-effect {
+    background: $secondary-lighter;
+  }
+  &.bar--not-in-effect {
+    background: $base-lighter;
+  }
+  h1 {
+    padding: 2px 0 12px 23px;
+    color: white;
+    margin: 0;
+  }
+  
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .current-status-bar--label {
+    position: absolute;
+    left: units(3);
+    font-size: 13px;
+    bottom: calc(100% + 10px);
+  }
+  
+  &.forced {
+    h1 {
+      align-items: flex-end;
+      display: flex;
+      font-size: 25px;
+      height: 30px;
+      justify-content: center;
+      margin: 0;
+      max-width: 70px;
+      overflow: hidden;
+      padding: 0;
+      transform-origin: bottom center;
+      transform: rotate(-90deg);
+      width: 70px;
+    }
+    
+    .current-status-bar--label {
+      left: units(1);
+    }
+    
+    &:nth-child(even) {
+      .current-status-bar--label {
+        bottom: auto;
+        top: calc(100% + 10px);
+      }
+    }
+  }
+}
+
+.site-last-updated {
+  font-size: 13px;
+  font-weight: 600;
+  margin: units(4) 0 0;
+  margin-top: 10px;
+  text-align: center;
+  
+  @include tablet-s {
+    margin-top: units(2);
+    text-align: left;
+    bottom: units(3);
+    position: absolute;
+    left: units(4);
+  }
+}
+
+
+
+/* The switch - the box around the slider */
+.switch {
+  display: flex;
+  //flex: row;
+  position: relative;
+  align-items: center;
+  //display: inline-block;
+  width: 25%; /* Adjust width for longer text */
+  height: auto; /* Adjust height for readability */
+  //margin-left: 55%;
+  margin-bottom: 1%;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 50%; /* Width of the toggle */
+  height: 50px; /* Height of the toggle */
+  background-color: $primary-lighter;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 10px; /* Rounded edges */
+  overflow: hidden; /* Clip the text inside the slider */
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* Text inside the slider */
+// .slider .label-text {
+//   position: relative;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   width: 55%; /* Half the width of the slider */
+//   text-align: center;
+//   font-size: units(1.5); /* Adjust font size */
+//   font-weight: bold;
+//   color: white;
+//   pointer-events: none; /* Prevent interaction with text */
+//   opacity: 1; /* Default text is visible */
+//   transition: opacity 0.4s ease; /* Smooth transition for opacity */
+// }
+
+/* Position the text */
+.slider .left {
+  left: 10px;
+}
+
+.slider .right {
+  right: 10px;
+}
+
+/* The sliding circle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 42px;
+  width: 42px;
+  left: 6%;
+  top: 3px;
+  bottom: 5px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 20%;
+}
+
+/* When checked, change background to red and move circle */
+input:checked + .slider {
+  background-color: #fff238; /* Gray background when unchecked */
+}
+
+input:not(:checked) + .slider:before {
+  transform: translateX(200%); /* Move to the other side */
+}
+
+
+/* Inactive text becomes invisible when checked */
+input:checked + .slider .left {
+  opacity: 1; /* Make the left text invisible */
+  
+}
+
+input:checked + .slider .right {
+  //color: black; /* Highlight the inactive text */
+  opacity: 0;
+
+}
+
+input:checked + .slider .left {
+  color: $primary; /* Active text is black for contrast */
+  opacity: 1;
+}
+
+/* When unchecked (inactive state) */
+input:not(:checked) + .slider .left {
+  opacity: 0; /* Left text is visible when unchecked */
+}
+
+input:not(:checked) + .slider .right {
+  opacity: 0.7; /* Right text is invisible when unchecked */
+}
+
+.label-text {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+  margin-top: 3%;
+  font-weight: bold;
+}
+
+
+.hidden {
+  display: none;
+}
+

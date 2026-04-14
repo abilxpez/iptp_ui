@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjord+One&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Fjord+One&display=swap');
+
+$fjord: 'Fjord One', serif;
+$open-sans: "Open Sans", sans-serif;
+
+h1, h2, h3, h4 {
+  // font-family: $fjord;
+  font-family: Arial;
+  font-weight: 400;
+}
+
+h5, h6, p, ul, ol, cite {
+  font-family: $open-sans;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 110%;
+
+  @include tablet-s { 
+    font-size: 60px; 
+  }
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 27px;
+
+  @include tablet-s {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+h3 {
+  font-size: 16px;
+  line-height: 20px;
+
+  @include tablet-s {
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 17px;
+
+  @include tablet-s {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+h5 {
+  font-size: 16px;
+  // font-weight: bold;
+  font-weight: 600;
+  line-height: 22px;
+
+  @include tablet-s {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+h6 {
+  font-size: 13px;
+  line-height: 16px;
+}
+
+p, ul, ol, cite {
+  font-size: 15px;
+  line-height: 24px;
+  font-style: normal;
+  
+
+  @include tablet-s {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  
+  .intro & {
+    // font-family: $fjord;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    line-height: 30px;
+  }
+}
+
+.label-link {
+  color: $primary;
+  cursor: pointer;
+  display: initial;
+  font-family: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  
+  &:hover {
+    color: $primary-darker;
+  }
+}
+
+a {
+  color: $primary;
+
+  &:visited {
+    color: $primary;
+  }
+  
+  &:hover {
+    color: $primary-darker;
+  }
+  
+  .dark & {
+    color: $accent-cool-darker;
+  }
+}
+
+// SPECIAL STYLES
+.intro {
+  // font-family: $fjord;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.subtitle {
+  // font-family: $fjord;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 30px;
+  padding: 16px 0;
+
+  @include tablet-s {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+.date {
+  color: $base-light;
+  font-family: $open-sans;
+  font-weight: 400;
+  line-height: 1;
+  // font-size: 13px;
+}
+
+.lead-text {
+  font-family: $fjord;
+  font-size: 22px;
+  line-height: 1.5;
+}

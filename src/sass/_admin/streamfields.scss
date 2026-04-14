@@ -1,0 +1,148 @@
+@mixin flexed($c: 3, $g: 1, $s: 1) {
+  flex: $g $s calc((100% - ((#{$c} - 1) * 10px)) / #{$c});
+  margin: 5px 10px 5px 0;
+  padding: 0;
+
+  &:nth-child(#{$c}n), &:last-child {
+    margin-right: 0;
+  }
+  
+  &:last-child:nth-child(odd) {
+    flex-grow: 0;
+  }
+}
+
+.panel-stream-fields {
+    .stream-field {
+      .block_field {
+        > label {
+          visibility: hidden;
+          display: none;
+        }
+      }
+    }
+    
+    
+    .c-sf-container {
+      .c-sf-block__header {
+        background: $accent-light;
+        position: relative;
+  
+        .c-sf-block__type {
+          position: absolute;
+          left: 50px;
+          font-size: 19px;
+          text-transform: uppercase;
+          font-weight: 600;
+          padding: 0;
+          line-height: 30px;
+        }
+      }
+      
+      .chooser {
+        .chosen {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          
+          .title {
+            font-size: 20px;
+            font-weight: 500;
+            flex: 1 0 65%;
+            padding-left: 5px;
+          }
+          
+          .edit-link { // because it is confusing there
+            display: none;
+          }
+         
+        } // .chosen
+        
+        &.blank {
+          .chosen {
+            display: none;
+          }
+        }
+        
+        &.page-chooser {
+          .chosen {
+            flex-direction: column;
+            align-items: flex-start;
+            
+            &:before, .icon {
+              display: none;
+            }
+            
+            .title {
+              line-height: 1.5;
+              margin-bottom: 20px;
+              padding-left: 0.3rem;
+            }
+            
+          }
+          .action-clear {
+            display: none;
+          }
+        }
+      } // .chooser
+  
+      .c-sf-add-panel {
+        padding-left: 0;
+        padding-right: 0;
+        
+        .c-sf-add-panel__grid {
+          justify-content: space-between;
+  
+          .c-sf-button {
+            white-space: nowrap;
+            flex: 0 1 calc(96% / 2);
+          }
+        }
+      }
+  
+      .c-sf-add-button {
+        background: $accent-cool;
+        border-radius: 3px;
+        
+        &.c-sf-add-button--visible {
+          display: flex;
+          overflow: visible;
+          align-self: center;
+          text-align: center;
+          justify-content: center;
+  
+          &:hover {
+            background: $accent-cool-darker;
+          }
+  
+          &:after {
+            content: "Add";
+            margin: 3px 6px 0px;
+            align-self: center;
+          }
+  
+          &.c-sf-add-button--close {
+            &:after {
+              content: "Remove";
+            }
+          }
+        }
+      }
+    }
+  }
+  
+.c-sf-container {
+  &.flexed_blocks {
+    padding: 0;
+    
+    > div {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      
+      .c-sf-add-button--visible {
+        padding: 3px;
+      }
+    }
+  } // .flexed_blocks
+}

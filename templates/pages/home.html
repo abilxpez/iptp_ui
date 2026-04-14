@@ -1,0 +1,111 @@
+<main class="main" id="main-content">
+  <form action="#" method="get" id="main-search" class="main-search">
+    <div class="wrap">
+      <label class="sr-only" for="query">Search for Keywords, Topics, Events, Issues and more.</label>
+      <input
+        role="combobox"
+        autocomplete="off"
+        aria-owns="res"
+        aria-autocomplete="both"
+        type="text"
+        class="input input--full input-search"
+        id="query"
+        name="query"
+        placeholder="Search for Keywords, Topics, Events, Issues, Names, and more."
+      />
+      <button type="submit" class="icon" value="Search" aria-label="Search">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.663 15.663C15.8023 15.5235 15.9677 15.4129 16.1498 15.3374C16.3319 15.2619 16.5271 15.2231 16.7242 15.2231C16.9214 15.2231 17.1165 15.2619 17.2986 15.3374C17.4807 15.4129 17.6462 15.5235 17.7855 15.663L23.5605 21.438C23.8419 21.7193 24.0001 22.1008 24.0003 22.4987C24.0004 22.8966 23.8425 23.2783 23.5612 23.5597C23.28 23.8412 22.8984 23.9994 22.5005 23.9996C22.1026 23.9997 21.7209 23.8418 21.4395 23.5605L15.6645 17.7855C15.525 17.6462 15.4144 17.4808 15.3389 17.2987C15.2634 17.1166 15.2245 16.9214 15.2245 16.7242C15.2245 16.5271 15.2634 16.3319 15.3389 16.1498C15.4144 15.9677 15.525 15.8023 15.6645 15.663H15.663Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.75 18C10.8334 18 11.9062 17.7866 12.9071 17.372C13.9081 16.9574 14.8175 16.3497 15.5836 15.5836C16.3497 14.8175 16.9574 13.9081 17.372 12.9071C17.7866 11.9062 18 10.8334 18 9.75C18 8.66659 17.7866 7.5938 17.372 6.59286C16.9574 5.59193 16.3497 4.68245 15.5836 3.91637C14.8175 3.15029 13.9081 2.5426 12.9071 2.12799C11.9062 1.71339 10.8334 1.5 9.75 1.5C7.56196 1.5 5.46354 2.36919 3.91637 3.91637C2.36919 5.46354 1.5 7.56196 1.5 9.75C1.5 11.938 2.36919 14.0365 3.91637 15.5836C5.46354 17.1308 7.56196 18 9.75 18ZM19.5 9.75C19.5 12.3359 18.4728 14.8158 16.6443 16.6443C14.8158 18.4728 12.3359 19.5 9.75 19.5C7.16414 19.5 4.68419 18.4728 2.85571 16.6443C1.02723 14.8158 0 12.3359 0 9.75C0 7.16414 1.02723 4.68419 2.85571 2.85571C4.68419 1.02723 7.16414 0 9.75 0C12.3359 0 14.8158 1.02723 16.6443 2.85571C18.4728 4.68419 19.5 7.16414 19.5 9.75Z" fill="black"/>
+          </g>
+        </svg>
+      </button>
+    </div>
+  </form>
+
+  <div class="site-section site-section--less-spacing site-section--white">
+    <div class="wrap">
+      <div class="grid-row tuck-over tuck-over--top tuck-over--bottom">
+        <div class="shadow-box shadow-box--full">
+          <div class="grid-row">
+            <div class="grid-col--12 tablet-s:grid-col--8">
+              <h2>Tracking Trump Administration Immigration Policies</h2>
+              <p class="site-intro intro">A frontend scaffold that preserves IPTP spacing, typography, and color system for migration work.</p>
+            </div>
+            <div class="grid-col--12 tablet-s:grid-col--4">
+              <div class="all-policies-link" style="margin-bottom: 5px;">
+                <button class="button button--secondary"><a href="#"><u>For all Trump 2.0 policies, click here</u></a></button>
+              </div>
+              <div class="all-policies-link" style="margin-bottom: 10px; position: relative">
+                <button type="button" class="button--primary"><a href="#" style="color: inherit; text-decoration: underline;">All 1.0 + 2.0 Policies</a></button>
+              </div>
+              <div>
+                <a href="#" class="first-term-policies-link" style="font-size: 18px; font-family: Arial;">Trump 1.0 Policies Only</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="grid-row grid-col--12 stats__data-viz__bar margin-bottom--3">
+            <button class="filter-button" type="button" aria-expanded="false" aria-controls="current-status-menu">See Current Status of Trump 1.0 Policies</button>
+            <div class="filters-menu" id="current-status-menu" hidden style="width: 98%;">
+              <h2>Current Status of Trump 1.0 Policies</h2>
+              <div class="current-status-bar grid-row">
+                <a href="#" class="bar forced bar--fully-in-effect" style="width: 33%;" title="Fully in Effect">
+                  <h1>35</h1>
+                  <div class="status current-status-bar--label">Fully in Effect</div>
+                </a>
+                <a href="#" class="bar forced bar--partially-in-effect" style="width: 33%;" title="Partially in Effect">
+                  <h1>18</h1>
+                  <div class="status current-status-bar--label">Partially in Effect</div>
+                </a>
+                <a href="#" class="bar forced bar--not-in-effect" style="width: 34%;" title="Not in Effect">
+                  <h1>52</h1>
+                  <div class="status current-status-bar--label">Not in Effect</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <p class="site-last-updated">Site last updated: April 14th 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section site-section--dark-bg spotlight-bg">
+    <div class="wrap">
+      <div class="grid-row card-set">
+        <div class="card-wrap card-wrap--header grid-col--12 tablet-s:grid-col--6 desktop:grid-col--4">
+          <h2 class="card-set__heading">Highlights</h2>
+        </div>
+        <div class="card-wrap grid-col--12 tablet-s:grid-col--6 desktop:grid-col--4">
+          <div class="card">
+            <p><span class="date">April 14, 2026</span></p>
+            <h3 class="card__heading"><a class="card__heading__link" href="#">Federal Court Update</a></h3>
+            <p>Latest policy litigation status and procedural posture.</p>
+          </div>
+        </div>
+        <div class="card-wrap grid-col--12 tablet-s:grid-col--6 desktop:grid-col--4">
+          <div class="card">
+            <p><span class="date">April 13, 2026</span></p>
+            <h3 class="card__heading"><a class="card__heading__link" href="#">EOIR Guidance Change</a></h3>
+            <p>Operational implications for court access and relief pathways.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section site-section--gray site-section--prefooter">
+    <div class="wrap">
+      <div class="grid-row">
+        <div class="grid-col--12 tablet-s:grid-col--6 intro">
+          <p>This scaffold is intended as the UI baseline for rebuilding the IPTP website frontend safely and incrementally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

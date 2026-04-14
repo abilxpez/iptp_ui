@@ -1,0 +1,29 @@
+.result-list {
+
+    td {
+        vertical-align: middle;
+    }
+
+    .field-admin_tag {
+        min-width: 300px;
+        white-space: nowrap;
+
+        .actions {
+            float: right;
+            margin: 0;
+        }
+    }
+    .field-synonyms {
+        min-width: 250px;
+    }
+    .column-admin_display,
+    .column-admin_current_event,
+    .column-admin_biden,
+    .field-admin_display,
+    .field-admin_biden,
+    .field-admin_current_event {
+        text-align: center;
+        white-space: normal;
+        width: 100px;
+    }
+}

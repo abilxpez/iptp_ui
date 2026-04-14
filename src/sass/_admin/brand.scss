@@ -1,0 +1,343 @@
+@import "../_settings/color";
+
+@mixin white-on-primary {
+  border-color: $primary;
+  background: $primary;
+  color: white;
+}
+
+@mixin white-on-secondary {
+  background: $secondary;
+  color: white;
+}
+
+@mixin primary-on-white {
+  background: white;
+  color: $primary;
+}
+
+@mixin button-secondary {
+  @include primary-on-white;
+  border-color: $primary;
+  border-radius: 3px;
+
+  &:hover {
+    @include white-on-primary;
+  }
+}
+
+.modal {
+  header {
+    @include white-on-primary;
+  }
+}
+.tag {
+  @include white-on-primary;
+}
+
+.status-tag, .button {
+  border-radius: 3px;
+}
+
+.status-tag, .status-tag.primary {
+  @include button-secondary;
+
+  thead & {
+    &:hover {
+      @include white-on-secondary;
+      
+    }
+  }
+}
+
+.merged, .page-explorer .listing .index  {
+  background: $primary;
+}
+
+.tab-nav {
+  background: $primary;
+  
+  &.merged {
+    background: $primary;
+    color: white;
+  }
+  
+  
+  li {
+    a {
+      @include white-on-secondary;
+      border-color: $secondary;
+      
+      &:hover {
+        
+        border-top-color: white;
+        color: white;
+      }
+    }
+    
+    &.active {
+      a {
+        background: white;
+        border-top-color: white;
+        color: $base-darker;
+      }
+    }
+  }
+}
+
+.content-wrapper, .modal, .content-wrapper .object {
+  > .title-wrapper {
+    background: $accent-cool;
+    
+    &:before {
+      background: #657bb3;
+    }
+  }
+  
+  input[type=checkbox]:checked:before, input[type=radio]:checked:before {
+    color: $primary;
+  }
+
+  .c-sf-add-button {
+    color: $primary;
+  }
+
+  .dropdown {
+    ul {
+      background: white;
+      
+      a {
+        background: $primary;
+        color: white;
+        
+      }
+    }
+  }
+
+  .button, .c-sf-button, .dropdown .dropdown-toggle {
+    @include white-on-primary;
+    
+    > span {
+      color: white;
+    }
+  
+    &:hover {
+      background: $primary-darker;
+      color: white;
+    }
+  
+    &.button-secondary {
+      @include button-secondary;
+    }
+
+    &.no, &.serious {
+      background: white;
+      border-color: $secondary;
+      color: $secondary;
+      
+      &:hover {
+        @include white-on-secondary;
+      }
+    }  
+  } // buttons
+  
+  .c-dropdown {
+    .c-dropdown__button {
+      @include button-secondary;
+    }
+  }
+  
+  .halloeditor:focus, .tagit:focus, input:focus, select:focus, textarea:focus {
+    border-color: $primary-lighter;
+  }
+
+  a {
+    color: $primary;
+    
+    &:hover {
+      color: $primary-darker;
+    }
+  }
+  
+  .content, .modal {
+    header, .merged {
+      @include white-on-primary;
+      
+      .button {
+        background: $primary-lighter;
+        color: white;
+      }
+  
+      .breadcrumb {
+        background: $primary-darker;
+        
+        * {
+          color: white;
+
+          &:after {
+            color: white;
+          }
+          
+          &:hover {
+            @include white-on-secondary;
+          }
+        }
+        a {
+          padding: calc(0.5em - 4px) 2px;
+        }
+      } // .breadcrumb
+    }
+  
+  }
+  // menus
+  .nav-wrapper {
+    .inner {
+      background: $base;
+    }
+  }
+}
+.page-explorer .listing {
+
+  thead {
+
+    .index {
+
+      .button, .button.bicolor, .c-dropdown__button {
+        @include white-on-secondary;
+
+        &:hover {
+          background: $secondary-lighter;      
+        }
+      }
+    }
+  }
+
+  tbody {
+    .actions {
+      transition: all 0.25s ease-in-out;
+
+    } 
+    
+    .status {
+      .status-tag {
+        @include button-secondary;
+      }
+    }
+    
+    tr {
+      &:hover {
+        .children {
+          a:before {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+  
+  td {
+    &.title {
+      .title-wrapper {
+
+        a {
+          &:hover { 
+            color: $primary;
+          }
+        }
+      }
+    }
+    
+    &.actions {
+      transition: all 0.25s ease-in-out;
+      li {
+        a {
+          &:hover {
+            @include white-on-secondary;
+          }
+        }
+      }
+
+      .button, .c-dropdown__button {
+        @include white-on-primary;
+        border-color: white;
+      }
+    }
+
+
+    &.children {
+      background: $accent-light;
+
+      a {
+        display: block;
+        color: $primary;
+        font-size: 1.5em;
+        text-align: center;
+        overflow: visible;
+        line-height: 1;
+        padding: 0;
+
+        &:before {
+          color: $primary;
+        }
+
+        &:hover {
+          color: white;
+
+          &:before {
+            color: white !important;
+          }
+  
+        }
+      }
+
+      &:hover {
+        background: $primary;
+
+        a, a:before {
+          color: white;
+        }
+      }
+    }
+  }
+}
+  
+.nav-main {
+  
+  .menu-item {
+    
+    a {
+      &:hover, &:active {
+        background: $base-darker;
+        box-shadow: 0 -1px 0px $base-lighter inset, 0px 1px 0px $base-lighter inset;
+      } 
+    }
+    .add-policy {
+      @include white-on-primary;
+      
+      &:hover {
+        background: $primary-darker;
+      }
+    }
+
+    .view-policies {
+      background: $primary-lighter;
+      color: white;
+      
+      &:hover {
+        background: $primary-darker;
+      }
+    }
+
+    .view-feedback {
+      background: $accent-cool-darker;
+      color: $black;
+      text-shadow: -1px -1px 0 rgba(255,255,255,.3);
+      
+      &:hover {
+        background: $primary-darker;
+        color: white;
+        text-shadow: -1px -1px 0 rgba(0,0,0,.3);
+      }
+    }
+  }
+}

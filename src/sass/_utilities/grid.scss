@@ -1,0 +1,56 @@
+.grid-container--full {
+  padding: 0;
+  max-width: 100%;
+}
+
+.grid-row {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+}
+
+%grid-column {
+  box-sizing: border-box;
+  min-height: 1px; // Prevent columns from collapsing when empty
+  min-width: 0; // Resize columns as expected (https://css-tricks.com/flexbox-truncated-text/)
+  position: relative;
+  width: 100%;
+}
+
+@for $i from 1 through $grid-columns {
+  // Example: col--6
+  .grid-col--#{$i} {
+    @extend %grid-column;
+  }
+}
+
+.grid-col {
+  @extend %grid-column;
+  @include equal-width-flexbox-col;
+}
+
+@for $i from 1 through $grid-columns {
+  // Example: col--12
+  .grid-col--#{$i} {
+    @include flexbox-col($i);
+  }
+}
+
+// Breakpoint prefix grids. All
+@each $bp_name, $bp_value in $breakpoints {
+
+  @media only screen and (min-width: #{$bp_value}px) {
+    // Provide breakpoint classes for equal-width columns
+    // Example: lg-col
+    .#{$bp_name}\:grid-col {
+      @include equal-width-flexbox-col;
+    }
+
+    @for $i from 1 through $grid-columns {
+      // Example: lg-col--12
+      .#{$bp_name}\:grid-col--#{$i} {
+        @include flexbox-col($i);
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+
+@media screen and (min-width:800px) {
+   .nav-wrapper {
+        [data-environment] {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            color: $white;
+            background: $secondary-vivid;
+            text-align: center;
+            right: 0;
+            z-index: 3;
+            line-height: 2;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 20px;
+            letter-spacing: 5px;
+        }
+        .wagtail-logo-container__desktop {
+            z-index: 5;
+        }
+    }
+}

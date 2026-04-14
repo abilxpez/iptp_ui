@@ -1,0 +1,70 @@
+$white: #fff;
+$border-color: #dfdfdf;
+$gray-light: #efefef;
+
+// Rich-Text Fields
+
+.Draftail-Editor__wrapper {
+
+    .Draftail-Editor {
+        background: transparent;
+        border-color: transparent;
+    }
+    
+    .Draftail-Toolbar {
+      border: 1px solid $border-color;
+      background: $gray-light;
+      border-radius: 3px 3px 0 0;
+      box-sizing: border-box;
+      
+      .Draftail-ToolbarGroup {
+        margin-right: 1em;
+        border: 1px solid $border-color;
+        border-radius: 3px;
+  
+        &:before {
+          display: none;
+        }
+      }
+      
+      .Draftail-ToolbarButton {
+        .icon {
+          &:before {
+            margin: 0;
+          }
+        }
+        &.Draftail-ToolbarButton--active {
+          border-radius: 3px;
+          margin: -1px 1px -1px -1px;
+          
+          &:last-child {
+            margin: -1px -1px -1px 1px;
+          }
+        }
+          
+      }
+    } // .Draftail-Toolbar
+    
+    .DraftEditor-editorContainer {
+      padding: 1rem;
+      border: 1px solid $border-color;
+      border-width: 0 1px 1px;
+      border-radius: 0 0 3px 3px;
+      background: $white;
+    }
+  
+    .Draftail-block--blockquote {
+      > div {
+        border-left: 3px solid #999;
+        display: block;
+        padding-left: 10px;
+      }
+    }
+    .Draftail-block--lead-text {
+      > div {
+        font-size: 1.2em;
+      }
+    }
+  }
+  
+  
