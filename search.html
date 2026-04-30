@@ -2,9 +2,9 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Immigration Policy Tracking Project UI</title>
+    <title>Search Results | Immigration Policy Tracking Project UI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Frontend scaffold mirroring IPTP visual system." />
+    <meta name="description" content="Search results for IPTP policy search." />
     <link rel="apple-touch-icon" sizes="180x180" href="./static/images/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="./static/images/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./static/images/favicon/favicon-16x16.png" />
@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" type="text/css" href="./static/css/main.css" />
   </head>
-  <body class="page--home">
+  <body class="page--index page--policies page--search">
     <a href="#main-content" class="skipnav">Skip to main content</a>
 
     <header class="masthead" id="masthead">
@@ -33,17 +33,10 @@
           </a>
 
           <ul style="display: flex; justify-content: space-between; margin-left: 30px">
+            <li><a href="./index.html">Home</a></li>
             <li><a href="#">Policies</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" tabindex="0">2.0 Issues</a>
-              <ul class="dropdown-menu" style="min-width: 320px;">
-                <li><a href="#">Immigration Courts & EOIR</a></li>
-                <li><a href="#">Status & Eligibility</a></li>
-                <li><a href="#">Border & Court Orders</a></li>
-              </ul>
-            </li>
             <a href="#" class="nav-subscribe-button" tabindex="0">Subscribe</a>
           </ul>
         </nav>
@@ -61,7 +54,7 @@
 
         <a href="#main-menu-toggle" class="backdrop" tabindex="-1" aria-hidden="true" hidden></a>
       </div>
-      <form action="./search.html" method="get" id="main-search" class="main-search" style="margin-top: 8px;">
+      <form action="./search.html" method="get" id="main-search" class="main-search">
         <div class="wrap">
           <label class="sr-only" for="query">Search for Keywords, Topics, Events, Issues and more.</label>
           <input
@@ -85,91 +78,75 @@
           </button>
         </div>
       </form>
+
     </header>
 
     <main class="main" id="main-content">
-      <div class="site-section site-section--less-spacing site-section--white">
+      <div class="results-panel">
         <div class="wrap">
-          <div class="grid-row tuck-over tuck-over--top tuck-over--bottom">
-            <div class="shadow-box shadow-box--full">
-              <div class="grid-row">
-                <div class="grid-col--12 tablet-s:grid-col--8">
-                  <h2>Tracking Trump Administration Immigration Policies</h2>
-                  <p class="site-intro intro">A frontend scaffold that preserves IPTP spacing, typography, and color system for migration work.</p>
+          <div class="results-toolbar">
+            <h2 class="page-title" style="margin: 0 0 1.6rem;">Search Results</h2>
+            <div id="search-feedback" class="no-results" hidden></div>
+
+            <div id="search-controls" class="grid-row margin-x--neg1p5 policy-filters" style="display:none;">
+              <div class="grid-col--12 filter-container">
+                <h2 class="filter-set-heading">Filter by:</h2>
+              </div>
+              <div class="search-filter-row" style="display: flex; gap: 1rem; width: 100%; justify-content: space-evenly; flex-wrap: wrap; margin-bottom: 1rem;">
+                <div style="flex: 1 1 280px;" class="grid-col--12 tablet-s:grid-col--4 tablet-s:padding-x--1p5 margin-bottom--3 tablet-s:margin-bottom--0">
+                  <button class="filter-button filter-button--litigation" type="button" aria-expanded="false" aria-controls="filters-litigation">
+                    <span>Actions Subject to Litigation:</span>
+                    <span class="litigation-off-pill">OFF</span>
+                  </button>
+                  <div class="filters-menu filters-menu--wide" id="filters-litigation" hidden>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">All</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">On</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">Off</a></h3>
+                  </div>
                 </div>
-                <div class="grid-col--12 tablet-s:grid-col--4">
-                  <div class="all-policies-link" style="margin-bottom: 5px;">
-                    <button class="button button--secondary"><a href="#"><u>For all Trump 2.0 policies, click here</u></a></button>
+                <div style="flex: 1 1 260px;" class="grid-col--12 tablet-s:grid-col--4 tablet-s:padding-x--1p5 margin-bottom--3 tablet-s:margin-bottom--0">
+                  <button class="filter-button" type="button" aria-expanded="false" aria-controls="filters-subject-matter">Subject Matter</button>
+                  <div class="filters-menu filters-menu--wide" id="filters-subject-matter" hidden>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">All Subject Matters</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">Immigration Courts & EOIR</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">Status & Eligibility</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">Border & Court Orders</a></h3>
                   </div>
-                  <div class="all-policies-link" style="margin-bottom: 10px; position: relative">
-                    <button type="button" class="button--primary"><a href="#" style="color: inherit; text-decoration: underline;">All 1.0 + 2.0 Policies</a></button>
+                </div>
+                <div style="flex: 1 1 220px;" class="grid-col--12 tablet-s:grid-col--4 tablet-s:padding-x--1p5 margin-bottom--3 tablet-s:margin-bottom--0">
+                  <button class="filter-button" type="button" aria-expanded="false" aria-controls="filters-agencies">Agencies</button>
+                  <div class="filters-menu filters-menu--wide" id="filters-agencies" hidden>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">All Agencies</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">DHS</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">DOJ</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">USCIS</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">CBP</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">ICE</a></h3>
                   </div>
-                  <div>
-                    <a href="#" class="first-term-policies-link" style="font-size: 18px; font-family: Arial;">Trump 1.0 Policies Only</a>
+                </div>
+                <div style="flex: 1 1 280px;" class="grid-col--12 tablet-s:grid-col--4 tablet-s:padding-x--1p5 margin-bottom--3 tablet-s:margin-bottom--0">
+                  <button class="filter-button" type="button" aria-expanded="false" aria-controls="filters-admin-actions">Administrative Actions</button>
+                  <div class="filters-menu filters-menu--wide" id="filters-admin-actions" hidden>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">All Administrative Actions</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">Executive Orders</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">Presidential Proclamations</a></h3>
+                    <h3 class="filters__heading"><a href="#" onclick="return false;">Agency Guidance</a></h3>
                   </div>
                 </div>
               </div>
-
-              <div class="divider"></div>
-
-              <div class="grid-row grid-col--12 stats__data-viz__bar margin-bottom--3">
-                <button class="filter-button" type="button" aria-expanded="false" aria-controls="current-status-menu">See Current Status of Trump 1.0 Policies</button>
-                <div class="filters-menu" id="current-status-menu" hidden style="width: 98%;">
-                  <h2>Current Status of Trump 1.0 Policies</h2>
-                  <div class="current-status-bar grid-row">
-                    <a href="#" class="bar forced bar--fully-in-effect" style="width: 33%;" title="Fully in Effect">
-                      <h1>35</h1>
-                      <div class="status current-status-bar--label">Fully in Effect</div>
-                    </a>
-                    <a href="#" class="bar forced bar--partially-in-effect" style="width: 33%;" title="Partially in Effect">
-                      <h1>18</h1>
-                      <div class="status current-status-bar--label">Partially in Effect</div>
-                    </a>
-                    <a href="#" class="bar forced bar--not-in-effect" style="width: 34%;" title="Not in Effect">
-                      <h1>52</h1>
-                      <div class="status current-status-bar--label">Not in Effect</div>
-                    </a>
-                  </div>
+              <div class="search-sort-row" style="display: flex; gap: 1rem; width: 100%; flex-wrap: wrap;">
+                <div style="flex: 0 1 280px;" class="grid-col--12 tablet-s:grid-col--4 tablet-s:padding-x--1p5 margin-bottom--3 tablet-s:margin-bottom--0">
+                  <label for="search-sort" class="sr-only">Sort by</label>
+                  <select id="search-sort" class="filter-button" style="height: 48px;">
+                    <option value="date">Sort by: Date</option>
+                    <option value="score">Sort by: Score</option>
+                  </select>
                 </div>
-              </div>
-
-              <p class="site-last-updated">Site last updated: April 14th 2026</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="site-section site-section--dark-bg spotlight-bg">
-        <div class="wrap">
-          <div class="grid-row card-set">
-            <div class="card-wrap card-wrap--header grid-col--12 tablet-s:grid-col--6 desktop:grid-col--4">
-              <h2 class="card-set__heading">Highlights</h2>
-            </div>
-            <div class="card-wrap grid-col--12 tablet-s:grid-col--6 desktop:grid-col--4">
-              <div class="card">
-                <p><span class="date">April 14, 2026</span></p>
-                <h3 class="card__heading"><a class="card__heading__link" href="#">Federal Court Update</a></h3>
-                <p>Latest policy litigation status and procedural posture.</p>
-              </div>
-            </div>
-            <div class="card-wrap grid-col--12 tablet-s:grid-col--6 desktop:grid-col--4">
-              <div class="card">
-                <p><span class="date">April 13, 2026</span></p>
-                <h3 class="card__heading"><a class="card__heading__link" href="#">EOIR Guidance Change</a></h3>
-                <p>Operational implications for court access and relief pathways.</p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="site-section site-section--gray site-section--prefooter">
-        <div class="wrap">
-          <div class="grid-row">
-            <div class="grid-col--12 tablet-s:grid-col--6 intro">
-              <p>This scaffold is intended as the UI baseline for rebuilding the IPTP website frontend safely and incrementally.</p>
-            </div>
-          </div>
+          <div id="search-results" class="timeline search-results" hidden aria-live="polite"></div>
         </div>
       </div>
     </main>
@@ -179,10 +156,10 @@
         <div class="wrap">
           <cite>&copy; 2026 Immigration Policy Tracking Project</cite>
           <ul>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="#">Policies</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Sign In</a></li>
           </ul>
         </div>
       </div>

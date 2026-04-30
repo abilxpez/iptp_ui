@@ -1,0 +1,56 @@
+<div class="header spotlight-bg">
+  <div class="wrap">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ol class="breadcrumb-list">
+        <li class="breadcrumb-list__item">
+          <a class="breadcrumb__link" href="./index.html">Home</a>
+        </li>
+        <li class="breadcrumb-list__item">
+          <a class="breadcrumb__link" href="./search.html">Policies</a>
+        </li>
+        <li class="breadcrumb-list__item">
+          <a class="breadcrumb__link" href="./search.html">Search Results</a>
+        </li>
+      </ol>
+    </nav>
+
+    <h4 class="policy-details__term" id="policy-term"></h4>
+    <h1 class="policy-details__title" id="policy-title">Policy Detail</h1>
+  </div>
+</div>
+
+<main class="main main--no-padding" id="main-content">
+  <section id="tab-policy-overview">
+    <div class="wrap">
+      <div class="grid-row tuck-over tuck-over--top">
+        <div class="grid-col--12 tablet-s:grid-col--8">
+          <ol class="timeline timeline--mini padding-top--5" id="policy-timeline">
+            <li class="timeline__item timeline-item">
+              <span class="date timeline__item-dot" id="policy-date">Date unavailable</span>
+              <p class="lead-text" id="policy-summary">Loading policy summary...</p>
+              <h4 class="policy-details__heading margin-top--2">Relevant Chunk:</h4>
+              <p id="policy-chunk-snippet" style="margin-top: 1.2rem; white-space: pre-wrap;">Loading chunk snippet...</p>
+              <p id="policy-source" style="margin-top: 1.2rem; font-size: 1.4rem;"></p>
+            </li>
+          </ol>
+          <p style="margin-top: 1.6rem;">
+            <a href="./search.html">Back to search results</a>
+          </p>
+        </div>
+        <div class="grid-col--12 tablet-s:grid-col--4 tablet-s:padding-left--5">
+          <div class="policy-details shadow-box show-box--full-height tablet-s:padding--0">
+            <div class="tablet-s:padding--4 policy-detail--current-status">
+              <h4 class="policy-details__heading">Current Status</h4>
+              <span class="status" id="policy-current-status">Loading</span>
+            </div>
+            <div class="tablet-s:padding--4">
+              <h4 class="policy-details__heading no-border">Policy Metadata</h4>
+              <p id="policy-state"></p>
+              <p id="policy-meta"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
