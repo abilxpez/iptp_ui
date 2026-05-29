@@ -94,6 +94,25 @@
     return Number.isFinite(n) ? n : -Infinity;
   }
 
+  function relevanceBand(hit) {
+    const band = String((hit && hit.relevance_band) || "").toLowerCase();
+    if (band === "high" || band === "medium" || band === "low") return band;
+    return "medium";
+  }
+
+  function relevanceLabel(hit) {
+    const band = relevanceBand(hit);
+    if (band === "high") return "High";
+    if (band === "low") return "Lower";
+    return "Medium";
+  }
+
+  function relevancePercent(hit) {
+    const p = Number(hit && hit.relevance_probability);
+    if (!Number.isFinite(p)) return "";
+    return `${Math.round(p * 100)}%`;
+  }
+
   function createResultRow(hit) {
     const row = document.createElement("li");
     row.className = "grid-row timeline__l2__item policy-row";
@@ -138,6 +157,13 @@
     const scoreValue = typeof hit.rrf_score === "number" ? hit.rrf_score.toFixed(4) : "n/a";
     score.textContent = `RRF score: ${scoreValue}`;
     metaBox.appendChild(score);
+
+    if (hit.relevance_band) {
+      const relevance = document.createElement("p");
+      const percent = relevancePercent(hit);
+      relevance.textContent = `Relevance: ${relevanceLabel(hit)}${percent ? ` (${percent})` : ""}`;
+      metaBox.appendChild(relevance);
+    }
 
     const source = document.createElement("p");
     const sources = Array.isArray(hit.sources) ? hit.sources.join(", ") : "";
@@ -184,7 +210,11 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           q: query,
-          final_k: 50,
+          final_k: 10,
+          bm25_top_k: 20,
+          faiss_top_k: 20,
+          bm25_oversample: 5,
+          faiss_oversample: 5,
           sort_by_announced_date: false
         })
       });
@@ -268,6 +298,29 @@
       return section;
     }
 
+    function groupResultsByRelevance(results) {
+      return results.reduce((groups, hit) => {
+        groups[relevanceBand(hit)].push(hit);
+        return groups;
+      }, { high: [], medium: [], low: [] });
+    }
+
+    function buildResultBand(label, hits, collapsed) {
+      const rows = hits.map((hit) => createResultRow(hit));
+      if (!collapsed) {
+        return buildMonthSection(`${label} (${hits.length})`, rows, true);
+      }
+
+      const details = document.createElement("details");
+      details.className = "search-results-disclosure";
+
+      const summary = document.createElement("summary");
+      summary.textContent = `${label} (${hits.length})`;
+      details.appendChild(summary);
+      details.appendChild(buildMonthSection("", rows, false));
+      return details;
+    }
+
     function renderResults(results, elapsedMs) {
       const ordered = getDisplayedResults(results);
       clearChildren(resultsRoot);
@@ -282,36 +335,16 @@
       setFeedback(`Found ${ordered.length} result(s) in ${elapsedMs || "?"} ms.`, true);
       if (sortControls) sortControls.style.display = "block";
 
-      if (sortMode === "date") {
-        const groups = [];
-        let currentBucket = "";
-        let currentRows = [];
-        let currentLabel = "";
-
-        ordered.forEach((hit) => {
-          const bucket = monthBucket(hit.announced_date);
-          if (bucket !== currentBucket && currentRows.length) {
-            groups.push({ label: currentLabel, rows: currentRows });
-            currentRows = [];
-          }
-          if (bucket !== currentBucket) {
-            currentBucket = bucket;
-            currentLabel = monthLabel(hit.announced_date);
-          }
-          currentRows.push(createResultRow(hit));
-        });
-
-        if (currentRows.length) {
-          groups.push({ label: currentLabel, rows: currentRows });
+      const grouped = groupResultsByRelevance(ordered);
+      [
+        { label: "Top results", hits: grouped.high, collapsed: false },
+        { label: "Relevant results", hits: grouped.medium, collapsed: false },
+        { label: "More results", hits: grouped.low, collapsed: true }
+      ].forEach((section) => {
+        if (section.hits.length) {
+          resultsRoot.appendChild(buildResultBand(section.label, section.hits, section.collapsed));
         }
-
-        groups.forEach((group) => {
-          resultsRoot.appendChild(buildMonthSection(group.label, group.rows, true));
-        });
-      } else {
-        const rows = ordered.map((hit) => createResultRow(hit));
-        resultsRoot.appendChild(buildMonthSection("", rows, false));
-      }
+      });
 
       resultsRoot.removeAttribute("hidden");
     }

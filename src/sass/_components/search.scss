@@ -43,6 +43,23 @@
 .search-results {
 }
 
+.page--search {
+  .search-results-disclosure {
+    border-top: 1px solid $base-lightest;
+    margin-top: units(3);
+    padding-top: units(2);
+
+    > summary {
+      color: $primary;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 22px;
+      line-height: 27px;
+      margin-bottom: units(2);
+    }
+  }
+}
+
 .no-results {
   font-family: $fjord;
   font-size: 24px;

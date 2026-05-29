@@ -39,6 +39,19 @@
 .page--search #search-results {
   background: #ffffff;
 }
+.page--search .search-results-disclosure {
+  border-top: 1px solid #d6d6d6;
+  margin-top: 2.4rem;
+  padding-top: 1.6rem;
+}
+.page--search .search-results-disclosure > summary {
+  color: #4e5f8a;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.2rem;
+  line-height: 2.7rem;
+  margin-bottom: 1.6rem;
+}
 .page--search .timeline__l2__heading-link,
 .page--search .timeline__l2__heading-link:visited {
   color: #4e5f8a;
